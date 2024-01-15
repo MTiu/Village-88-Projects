@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="normalize.css" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Candy Crush</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                function readyGame() {
+                    if ($("ul li").length != 0) {
+                        $("ul li").remove();
+                        console.log("this ran");
+                    }
+                    for (let x = 0; x < 4; x++) {
+                        for (let y = 0; y < 3; y++) {
+                            let randomCandy = Math.floor(Math.random() * 3);
+                            candies = {
+                                candy0: "<li><img src='img/multicolor_candy.png' /></li>",
+                                candy1: "<li><img src='img/red_candy.png' /></li>",
+                                candy2: "<li><img src='img/yellow_candy.png' /></li>",
+                                candy3: "<li><img src='img/orange_candy.png' /></li>",
+                            };
+                            $("#candy-list-" + x).append(
+                                candies["candy" + randomCandy]
+                            );
+                        }
+                    }
+                }
+                readyGame();
+                $("#reset-game").click(function () {
+                    readyGame();
+                });
+                $("ul").on("click", "li img", function () {
+                    let randomCandy = Math.floor(Math.random() * 3);
+                    candies = {
+                        candy0: "<li><img src='img/multicolor_candy.png' /></li>",
+                        candy1: "<li><img src='img/red_candy.png' /></li>",
+                        candy2: "<li><img src='img/yellow_candy.png' /></li>",
+                        candy3: "<li><img src='img/orange_candy.png' /></li>",
+                    };
+
+                    $(this)
+                        .parent()
+                        .parent()
+                        .prepend(candies["candy" + randomCandy]);
+                    $(this).parent().remove();
+                    console.log(this);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+            <ul id="candy-list-0"></ul>
+            <ul id="candy-list-1"></ul>
+            <ul id="candy-list-2"></ul>
+            <ul id="candy-list-3"></ul>
+            <button id="reset-game">Reset Game</button>
+        </main>
+    </body>
+</html>

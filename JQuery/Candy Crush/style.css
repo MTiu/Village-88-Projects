@@ -1,0 +1,42 @@
+body {
+    background-image: url(img/background.jpg);
+    background-size: cover;
+}
+
+main {
+    width: 50%;
+    position: absolute;
+    left: 45%;
+    top: 15%;
+    border: 1px solid red;
+}
+
+ul {
+    width: 150px;
+    margin: 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+
+li {
+    margin: 10px;
+    display: inline-block;
+    border: 5px solid black;
+    background-color: blueviolet;
+}
+
+button {
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    padding: 10px;
+    left: 32%;
+    position: relative;
+    display: block;
+}
