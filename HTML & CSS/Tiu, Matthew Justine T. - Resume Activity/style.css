@@ -1,0 +1,125 @@
+.wrapper{
+    margin-left: 100px;
+    width: 900px;
+    height: 1050px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: rgb(247,247,247);
+    background: radial-gradient(circle, rgba(247,247,247,1) 0%, rgba(200,215,225,1) 100%);
+}
+a{
+    color: black;
+}
+.emphasis{
+    font-size: x-large;
+    font-weight: bolder;
+}
+header img{
+    object-fit: cover;
+    object-position: right;
+    width: 250px;
+    height: 220px;    
+    margin-top: 30px;
+}
+header, main{
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.contact-info{
+    display: inline-block;
+    vertical-align:top;
+    margin: 20px 0 0 30px;
+}
+    .contact-info ul{
+        border-top: 3px solid rgb(45, 70, 103);
+        width: 585px;
+        padding: 30px 0 0 0;
+    }
+        .contact-info ul li{
+            font-size: large;
+            display: inline;
+        }
+    .contact-info h1{
+        color: rgb(45, 70, 103);
+        font-size: 60px;
+        margin: 20px 0 0 0;
+    }
+    .contact-info h2{
+        margin-top: 5px;
+        margin-bottom: 32px;
+        font-size: 20px;
+    }
+
+main{
+    width: 870px;
+    height: 300px;
+}
+    main .about-me{
+        background: rgb(247,247,247);
+        background: radial-gradient(circle, rgba(247,247,247,1) 50%, rgba(220,220,220,1) 100%);
+        padding: 1px 30px 10px 30px;
+        margin-top: 20px;
+        text-align: justify;
+    }
+        main .about-me h2{
+           margin-top: 10px;
+        }
+    main .works{
+        display: inline;
+        margin-left: 20px;
+        width: 850px;
+        height: 400px;
+    }
+    main h2{
+        text-align: center;
+        color: rgb(61, 59, 59);
+        font-weight: bold;
+    }
+
+        main article .technologies, .projects{
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 20px;
+        }
+        main article .technologies{
+            width: 400px;
+        }
+            main article .technologies img{
+                width: 60px;
+                height: 60px;
+                margin: 5px
+            }
+        main article .projects{
+            background: rgb(247,247,247);
+            background: radial-gradient(circle, rgba(247,247,247,1) 50%, rgba(175,175,175,1) 100%);
+            width: 364px;
+            padding: 10px 40px 40px 40px;
+            
+        }
+            main article .projects p{
+            margin-top: 0;
+            margin-bottom: 0;
+            }
+            main article .projects h2{
+            margin-top: 0;
+            }
+            main article .projects h3{
+            margin-top: 40px;
+            margin-bottom: 0;
+            }
+    
+    main footer{
+        text-align: center;
+        margin-top: 35px;
+        margin-left: 175px;
+        width: 500px;
+        height: 100px;
+        display: block;
+    }
+        main footer img{
+        width: 30px;
+        height: 30px;
+        }
+        main footer a{
+            vertical-align: super;
+        }

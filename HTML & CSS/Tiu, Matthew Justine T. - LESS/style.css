@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.wrapper {
+  width: 970px;
+  height: 900px;
+  background-color: #2B2B2B;
+  margin: 150px;
+}
+nav {
+  background-color: #8892BF;
+  border-bottom: 4px solid #4E5A92;
+  overflow: hidden;
+  height: 50px;
+  padding-left: 60px;
+}
+nav img {
+  width: 45px;
+  height: 40px;
+}
+nav a {
+  padding: 16px 10px 16px 10px;
+  display: inline-block;
+  vertical-align: top;
+  color: #DCDEEB;
+}
+nav .image {
+  display: inline-block;
+  padding: 0;
+  width: 45px;
+  height: 40px;
+  margin: 5px 10px 0 10px;
+}
+nav input {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 90px;
+  margin-top: 15px;
+  padding-right: 80px;
+  color: #9A9A9A;
+}
+nav .selected {
+  background-color: #4E5A92;
+  color: white;
+}
+aside {
+  display: inline-block;
+}
+.nav-list {
+  color: #CCCCC2;
+  vertical-align: top;
+  margin-top: 30px;
+  font-size: small;
+  font-weight: lighter;
+}
+.nav-list h3 {
+  padding-bottom: 20px;
+  color: #CCCCC2;
+  border-bottom: 1px dotted #CCCCC2;
+  margin-bottom: 10px;
+}
+.nav-list li {
+  color: #CCCCC2;
+  border-bottom: 1px dotted #CCCCC2;
+  margin-bottom: 10px;
+}
+.nav-list a {
+  color: #CCCCC2;
+  margin-bottom: 10px;
+}
+.nav-list ul {
+  list-style-type: none;
+}
+.nav-list .selected {
+  font-weight: 700;
+  color: #ED6DC0;
+  border-bottom: 1px dotted #ED6DC0;
+  padding-right: 50px;
+}
+.page-location {
+  margin: 10px 420px 10px 50px;
+}
+.page-location a {
+  font-size: small;
+  color: #CCCCCC;
+  margin-right: 10px;
+}
+.page-navigator a {
+  font-size: small;
+  color: #CCCCCC;
+  margin-right: 30px;
+}
+main {
+  background-color: #F2F2F2;
+  border-right: 4px solid #666666;
+  display: inline-block;
+  width: 650px;
+  height: 650px;
+  padding: 20px;
+  margin: 0 20px 20px 20px;
+  line-height: 1.5;
+}
+main header {
+  padding-left: 380px;
+}
+main header * {
+  display: inline-block;
+}
+main header a {
+  margin-left: 30px;
+  font-size: small;
+  color: #336699;
+}
+main header label select {
+  padding-right: 60px;
+}
+main section h1 {
+  font-size: x-large;
+  font-weight: bold;
+  border-bottom: 1px dotted black;
+  margin-bottom: 20px;
+}
+main section h2 {
+  font-size: large;
+}
+main section ul {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+main section p {
+  font-size: medium;
+  margin-bottom: 20px;
+}
+main section a {
+  color: #336699;
+  text-decoration: underline;
+  font-size: medium;
+}
+main section h3 {
+  color: #793862;
+  border-bottom: 1px dotted black;
+  margin-bottom: 30px;
+}
+main section #add-note {
+  border-bottom: 1px solid #336699;
+  text-decoration: none;
+  font-size: small;
+  margin-left: 320px;
+}
+main section img {
+  width: 10px;
+}
+h2 {
+  font-size: x-large;
+  font-weight: bold;
+  border-bottom: 1px dotted black;
+  margin-bottom: 20px;
+}
+footer {
+  margin: 40px;
+}
+footer a {
+  color: white;
+  font-size: small;
+  margin-right: 10px;
+}

@@ -1,0 +1,138 @@
+*{
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url(img/background.png);
+    width: 1000px;
+    height: 300px;
+    padding: 0px 40px;
+    margin-left: 80px;
+}
+
+    header a{
+        color: white;
+        text-decoration: none;
+    }
+
+    header ul li{
+        background-color: rgb(255, 255, 255,0.1);
+        display: inline-block;
+        padding: 10px;
+        margin: 0 1px 15px 0;
+    }
+
+    header label{
+        font-size: x-large;
+        font-weight: 100px;
+        color: white;
+        background-color: #C75000;
+        text-align: center;
+        display: inline-block;
+        padding: 20px 287px;
+    }
+    
+        header label input{
+            text-align: center;
+            color: white;
+            background-color: #C75000;
+            border: none;
+            border-bottom: 1px solid white;
+        }
+
+    header .nav2{
+        position: relative;
+        left: 645px;
+    }
+
+main{
+    background-color: #ebe2cf;
+    height: 495px;
+}
+
+    main h1{
+        padding-top: 10px;
+    }
+
+    main .paragraph{
+        width: 425px;
+        line-height: 1.5;
+        font-size: medium;
+    }
+
+    main h1, 
+    main h2{
+        font-weight: lighter;
+        margin-left: 15px;
+    }
+    
+    main figure{
+        margin: 30px 20px 20px 35px;
+    }
+
+        main figure ul {
+            color: white;
+            width: 80px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+            main figure ul li {
+                    height: 18px;
+                    background-color: rebeccapurple;
+                    padding: 5px 6px;
+                    margin-bottom: 5px;
+                    position: relative;
+                    text-align: center;
+            }
+
+                main figure ul li span {
+                    position: absolute;
+                    left: 2px;
+                    top: 2px;
+                    font-size: 10px;
+                    padding: 1px 2px;
+                    font-size: xx-small;
+                    background-color: white;
+                    color: black;
+                }
+
+.title {
+    height: 35px;
+    line-height: 18px;
+    padding: 15px 0 0 0;
+    background-color: #ebe2cf;
+    color: black;
+    border-bottom: 3px solid;
+}
+
+.empty {
+    background-color: #e7dfcc;
+    padding-bottom: 10px;
+    margin: 0px;
+}
+
+.supported {
+    background-color: #2A8436;
+}
+
+.partial {
+    background-color: #936F14;
+}
+
+.not-supported {
+    background-color: #800000;
+}
+
+.floating-hashtag{
+    font-size: large;
+    color: white;
+    background-color: #C75000;
+    text-align: center;
+    padding: 5px;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 170px;
+    left: 95px;
+}
