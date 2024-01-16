@@ -1,0 +1,29 @@
+body {
+    background-image: url(https://wallpapercave.com/wp/wp2003923.jpg);
+}
+
+main {
+    width: 80%;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    text-align: center;
+    background-color: white;
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 10%;
+}
+
+img {
+    display: inline-block;
+    width: 130px;
+    height: 130px;
+    margin: 5px 0 10px 0;
+    border: 3px solid black;
+}
+
+ul {
+    display: inline-block;
+    list-style-type: none;
+    margin: 5px 0 20px 0;
+}

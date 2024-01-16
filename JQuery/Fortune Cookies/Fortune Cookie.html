@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Matchy Matchy</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("img").hover(
+                    function () {
+                        $(this).attr("src", $(this).attr("alt-src"));
+                    },
+                    function () {
+                        $(this).attr("alt-src", $(this).attr("src"));
+                        $(this).attr("src", "img/cookie.jpg");
+                    }
+                );
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+            <h1>Fortune Cookie</h1>
+            <p>
+                <strong>Directions:</strong> Close your eyes then point at this
+                page. Open your eyes and follow the advise your mouse pointer
+                leads on.
+            </p>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice1.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice2.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice3.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice4.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice5.png" /></li>
+            </ul>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice6.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice7.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice8.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice9.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice10.png" /></li>
+            </ul>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice11.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice12.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice13.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice14.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice15.png" /></li>
+            </ul>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice16.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice17.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice18.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice19.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice20.png" /></li>
+            </ul>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice21.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice22.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice23.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice24.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice25.png" /></li>
+            </ul>
+            <ul>
+                <li><img src="img/cookie.jpg" alt-src="img/advice26.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice27.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice28.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice29.png" /></li>
+                <li><img src="img/cookie.jpg" alt-src="img/advice30.png" /></li>
+            </ul>
+        </main>
+    </body>
+</html>
