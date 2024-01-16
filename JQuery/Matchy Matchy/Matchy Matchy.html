@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Matchy Matchy</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("main").on("click", "img", function () {
+                    console.log(this);
+                    if ($(this).attr("condition") == "active") {
+                        $(this).attr("condition", "non-active");
+                        $(this).attr("src", $(this).attr("alt-src"));
+                    } else if ($(this).attr("condition") == "non-active") {
+                        $(this).attr("condition", "active");
+                        $(this).attr("alt-src", $(this).attr("src"));
+                        $(this).attr("src", "img/question.jpg");
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <main>
+            <img
+                src="img/question.jpg"
+                alt-src="img/anis.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/chisato.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/takina.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/anis.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/euphy.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/chisato.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/mei.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/euphy.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/takina.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/mei.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/yuzu.jpg"
+                condition="active"
+            />
+            <img
+                src="img/question.jpg"
+                alt-src="img/yuzu.jpg"
+                condition="active"
+            />
+        </main>
+    </body>
+</html>

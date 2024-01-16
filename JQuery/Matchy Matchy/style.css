@@ -1,0 +1,16 @@
+body {
+    background-image: url(img/background.jpg);
+}
+
+main {
+    width: 50%;
+    margin: 5% 5% 5% 25%;
+}
+
+img {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    border: 3px solid black;
+}
