@@ -1,0 +1,219 @@
+* {
+    /* outline: 1px solid red; */
+    list-style-type: none;
+    text-decoration: none;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #1e22a9;
+}
+    header img{
+        width: 15%;
+        position: relative;
+        display: inline-block;
+        top: 20px;
+        left: 100px;
+        margin-right: 10%;
+
+    }
+    header .search-button{
+        position: relative;
+        top: 5%;
+        left: 1%;
+        width: 35px;
+        height: 35px;
+    }
+    header form{
+        width: 50%;
+        margin: 20px 5% 30px 5%;
+        display: inline-block;
+        vertical-align: top;
+    }
+        header form input{
+            width: auto;
+            padding: 12px 20% 12px 1%;
+            display: inline-block;
+        }
+        header form button{
+            width: 46px;
+            height: 46px;
+            display: inline-block;
+            vertical-align: bottom;
+            position: relative;
+            right: 11px;
+            background-color: #006DE1;
+            border: none;
+        }
+    header nav{
+        width: 100%;
+        background-color: white;
+    }
+        header nav ul {
+            text-align: center;
+            position: relative;
+            right: 10%;
+        }
+            header nav ul li {
+                margin: 10px 1% 10px 0;
+                padding: 0 1% 0 0;
+                display: inline-block;
+                border-right: 1px solid #1e22a9;
+            }
+            header nav ul .last-item{
+                border-right: none;
+            }
+                header nav ul li a{
+                    color: #1e22a9;
+                }
+main{
+    width: 90%;
+    margin: 1% 5% 0 5%;
+    text-align: center;
+}
+    main .hero{
+        width: 60%;
+        display: inline-block;
+    }
+        main .hero img{
+            width: 100%;
+        }
+    main .side-hero{
+        width: 30%;
+        display: inline-block;
+    }
+        main .side-hero img{
+            height: 100%;
+            width: 100%;
+        }
+    main .shop-list{
+        width: 95vw;
+        margin: 2% 0 5% 0;
+        display: inline-block;
+        position: relative;
+        right: 2%;
+    }
+        main .shop-list ul{
+            width: 100%;
+        }
+            main .shop-list ul li{
+                display: inline-block;
+                margin: 0 1% 0 1%;
+            }
+                main .shop-list ul li a{
+                    display: inline-block;
+                    width: 100%;
+                    position: relative;
+
+                }
+                main .shop-list ul li img{
+                    display: block;
+                }
+.items{
+        width: 100%;
+        background-color: #1D86FF;
+        text-align: center;
+        padding-bottom: 100px;
+    }
+    .items img{
+        display: block;
+        margin-left: 17%;
+    }
+    .items .love{
+        width: 70%;
+        margin: 0 15%;
+    }
+    .items section{
+        width: 12%;
+        height: 370px;
+        padding: 1%;
+        margin: 0 2px;
+        font-size: 0.5em;
+        display: inline-block;
+        background: white;
+        text-align: left;
+        vertical-align: top;
+        
+    }
+        .items section img{
+            vertical-align: top;
+        }
+        .items .product{
+            width: 80%;
+        }
+        .items section h1,.items section h2,.items section h3, .items section h4, .items section p{
+            margin-left: 4%;
+        }
+        .items section h1{
+            font-size: 2em;
+            margin-bottom: 0;
+        }
+        .items section h2{
+            font-size: 2.5em;
+            font-weight: lighter;
+            color: #0037B5;
+            margin-bottom: 0;
+        }
+        .items section h3{
+            margin-bottom: 0;
+            font-size: 1.6em;
+            text-decoration: line-through;
+        }
+        .items section h4{
+            margin-bottom: 0;
+            font-size: 1.4em;
+        }
+        .items section p{
+            font-size: 2em;
+            margin-bottom: 3%;
+        }
+
+
+.featured-brands{
+    width: 100%;
+    padding: 2%;
+    text-align: center;
+    background-color: #E0F6FF;
+}
+    .featured-brands h3{
+        position: relative;
+        right: 40%;
+    }
+    .featured-brands ul{
+        width: 80%;
+    }
+        .featured-brands ul li{
+            display: inline-block;
+            margin-top: 20px;
+            margin-right: 1%;
+        }
+footer{
+    background-color: #1E22AA;
+    color: white;
+    padding: 2%;
+    text-align: center;
+    vertical-align: baseline;
+}
+    footer ul{
+        display: inline-block;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+    footer p{
+        display: inline-block;
+    }
+        footer ul li{
+            display: inline-block;
+        }
+            footer ul li a{
+                color: white;
+            }
+.emphasis{
+    font-size: 1.2em;
+    background-color: pink;
+    color: #FF00A9;
+    text-decoration: none;
+    display: inline-block;
+}
+

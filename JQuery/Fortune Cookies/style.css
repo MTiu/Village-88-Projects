@@ -1,9 +1,11 @@
 body {
     background-image: url(https://wallpapercave.com/wp/wp2003923.jpg);
+    overflow: hidden;
 }
 
 main {
-    width: 80%;
+    width: 60%;
+    height: 1000px;
     font-size: 1.2rem;
     font-family: sans-serif;
     text-align: center;
