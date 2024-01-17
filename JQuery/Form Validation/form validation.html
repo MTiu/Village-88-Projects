@@ -3,7 +3,72 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>Form Validation</title>
+        <script>
+            $(document).ready(function () {
+                $("#datepicker").datepicker();
+                $("button").click(function () {
+                    let firstName = "",
+                        lastName = "",
+                        date = "";
+                    if ($("#input-first-name").val().trim() == "") {
+                        firstName = "First Name, ";
+                    }
+                    if ($("#input-last-name").val().trim() == "") {
+                        lastName = "Last Name, ";
+                    }
+                    if ($("#datepicker").val().trim() == "") {
+                        date = "Date ";
+                    }
+                    let validator = firstName + lastName + date;
+                    if (validator != "") {
+                        alert(validator + "can't be blank!");
+                        return false;
+                    } else {
+                        alert(
+                            "Success, " +
+                                $("#input-first-name").val() +
+                                " " +
+                                ($("#input-last-name").val() +
+                                    "! Your Vaccination is reserved on " +
+                                    $("#datepicker").val())
+                        );
+                        return false;
+                    }
+                });
+            });
+        </script>
     </head>
-    <body></body>
+    <body>
+        <main>
+            <form action="process.php" method="POST">
+                <h1>Scheduling Form for Vaccination</h1>
+                <label>
+                    First Name:
+                    <input
+                        type="text"
+                        placeholder="Please input your first name"
+                        id="input-first-name"
+                    />
+                </label>
+                <label>
+                    Last Name:
+                    <input
+                        type="text"
+                        placeholder="Please input your last name"
+                        id="input-last-name"
+                    />
+                </label>
+                <label>Date: <input type="text" id="datepicker" /></label>
+                <button>Reserve</button>
+            </form>
+        </main>
+    </body>
 </html>
