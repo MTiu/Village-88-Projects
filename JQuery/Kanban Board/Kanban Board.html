@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+        <script>
+            $(document).ready(function () {
+                $(".sortable").sortable({
+                    revert: "invalid",
+                    connectWith: ".sortable",
+                    scroll: false,
+                });
+                $("ul, li").disableSelection();
+            });
+        </script>
+    </head>
+    <body>
+        <header></header>
+        <main>
+            <section>
+                <h1 class="to-do-header">To-Do</h1>
+                <ul class="to-do sortable">
+                    <li>
+                        <p>Slay a Dragon and Free the Kingdom</p>
+                        <img src="img/anis.jpg" alt="" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h1 class="in-progress-header">In-Progress</h1>
+                <ul class="in-progress sortable">
+                    <li>
+                        <p>Create a Novel</p>
+                        <img src="img/komari.jpg" alt="" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h1 class="for-approval-header">For Approval</h1>
+                <ul class="for-approval sortable">
+                    <li>
+                        <p>Analyze the enemies</p>
+                        <img src="img/vil.jpg" alt="" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h1 class="testing-header">Testing</h1>
+                <ul class="testing sortable">
+                    <li>
+                        <p>Create Potions</p>
+                        <img src="img/euphy.jpg" alt="" />
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h1 class="done-header">Done</h1>
+                <ul class="done sortable"></ul>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,95 @@
+* {
+    /* outline: 1px solid red; */
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background-color: aliceblue;
+}
+
+main {
+    height: 100vh;
+}
+section {
+    display: inline-block;
+    width: 19.5%;
+    height: 100%;
+    text-align: center;
+    vertical-align: top;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+section h1 {
+    margin: 0;
+    padding: 20%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+section ul {
+    list-style-type: none;
+    padding: 0;
+    height: 100%;
+}
+section ul li {
+    padding: 20px;
+    width: 100%;
+    height: 150px;
+    margin: 20px 0;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+section ul li p {
+    width: 70%;
+    margin-right: 10%;
+    height: 80%;
+    display: inline-block;
+}
+
+section ul li img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.to-do-header {
+    background-color: lightblue;
+}
+.to-do li {
+    background-color: lightblue;
+}
+
+.in-progress-header {
+    background-color: yellow;
+}
+.in-progress li {
+    background-color: yellow;
+}
+
+.for-approval-header {
+    background-color: aquamarine;
+}
+.for-approval li {
+    background-color: aquamarine;
+}
+
+.testing-header {
+    background-color: orange;
+}
+.testing li {
+    background-color: orange;
+}
+
+.done-header {
+    background-color: green;
+    color: white;
+}
+.done li {
+    background-color: green;
+    color: white;
+}
