@@ -25,11 +25,11 @@
         }
 
         .row1 {
-            background-color: #D0312D;
+            color: #D0312D;
         }
 
         .row2 {
-            background-color: #3944BC;
+            color: #3944BC;
         }
     </style>
     <title>Bingo</title>
