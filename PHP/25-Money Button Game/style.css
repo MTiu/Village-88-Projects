@@ -1,0 +1,109 @@
+* {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #a9a9a9;
+    text-align: center;
+}
+
+h2,
+h3 {
+    color: #242624;
+}
+
+header h1 {
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #242624;
+    color: lightgreen;
+    display: inline-block;
+    position: absolute;
+    left: 20%;
+}
+
+header form {
+    display: inline-block;
+    position: absolute;
+    right: 20%;
+    top: 1%;
+}
+
+main {
+    width: 90%;
+    display: inline-block;
+    margin-top: 5%;
+    position: relative;
+}
+
+main h2 {
+    color: lightgreen;
+}
+
+main form {
+    background-color: #242624;
+    color: lightgreen;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+}
+
+footer {
+    display: inline-block;
+    width: 90%;
+    margin-top: 2%;
+}
+
+footer img {
+    width: 190px;
+    height: 190px;
+}
+
+h3 {
+    text-align: left;
+    padding-left: 25%;
+}
+
+.text-box {
+    background-color: #242624;
+    overflow-y: scroll;
+    width: 70%;
+    height: 178px;
+    padding-left: 10px;
+    margin-left: 2%;
+    display: inline-block;
+    border: 5px solid #242624;
+    text-align: left;
+}
+
+.text-minus {
+    color: lightcoral;
+}
+
+.text-plus {
+    color: lightgreen;
+}
+
+.button {
+    padding: 10px;
+    background-color: #242624;
+    border: 5px solid lightgreen;
+    border-radius: 10px;
+    color: lightgreen;
+    display: block;
+    position: relative;
+    left: 35%;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+
+.lost {
+    color: red;
+}
+
+header form .button {
+    border-color: #242624;
+}
