@@ -12,6 +12,13 @@ if (empty($_POST['contacts'])) {
     $_SESSION['error-array'][] = $_SESSION['contact-error'][] = 'Contacts only Contain Numbers';
 } else if (strlen($_POST['contacts']) != 11) {
     $_SESSION['error-array'][] = $_SESSION['contact-error'][] = 'Contacts should be 11 characters';
+} else {
+    if (isset($_POST['contacts'])) {
+        $contact_number = "{$_POST['contacts']}";
+        $_SESSION['contact_number'] = $contact_number;
+        $query = "INSERT INTO contacts(contact_number, created_at) VALUES($contact_number , NOW())";
+        run_mysql_query($query);
+    }
 }
 if (empty($_SESSION['error-array'])) {
     header('Location: success.php');
@@ -21,12 +28,7 @@ if (empty($_SESSION['error-array'])) {
 if (isset($_POST['return'])) {
     header('Location: Raffle Entry.php');
 }
-if (isset($_POST['contacts'])) {
-    $contact_number = $_POST['contacts'];
-    $_SESSION['contact_number'] = $contact_number;
-    $query = "INSERT INTO contacts(contact_number, created_at) VALUES($contact_number , NOW())";
-    run_mysql_query($query);
-}
+
 $_SESSION['contacts'] = fetch_all("SELECT * FROM contacts");
 
 if (isset($_POST['trash'])) {
