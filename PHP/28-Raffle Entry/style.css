@@ -26,7 +26,6 @@ main {
   color: #0f4c75;
   border-radius: 20px;
   box-shadow: 0px 0px 290px 48px rgba(0, 0, 0, 0.3);
-  overflow-y: scroll;
 }
 main label {
   display: block;
