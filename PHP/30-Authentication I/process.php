@@ -2,7 +2,24 @@
 session_start();
 require('new-connection.php');
 
-
+function logValidate($elem, $min = 8, $max = 40)
+{
+    foreach ($elem as $key => $value) {
+        if (empty($value)) {
+            $_SESSION['error-array'][] = $_SESSION['log-' . $key . '-error'][] = ucwords($key) . ' should not be empty';
+        } else if ($key == 'email address') {
+            if (!(filter_var($value, FILTER_VALIDATE_EMAIL))) {
+                $_SESSION['error-array'][] = $_SESSION['log-' . $key . '-error'][] = 'Invalid Email';
+            }
+        } else if ($key == 'password') {
+            if (strlen($value) < $min) {
+                $_SESSION['error-array'][] = $_SESSION['log-' . $key . '-error'][] = 'Invalid! ' . $key . " should contain at least " . $min . " Characters";
+            } else if (strlen($value) >= $max) {
+                $_SESSION['error-array'][] = $_SESSION['log-' . $key . '-error'][] = 'Invalid! ' . $key . " should not contain more than " . $max . " Characters";
+            }
+        }
+    }
+}
 
 function validate($elem, $min = 2, $max = 11)
 {
@@ -11,9 +28,9 @@ function validate($elem, $min = 2, $max = 11)
             $_SESSION['error-array'][] = $_SESSION[$key . '-error'][] = ucwords($key) . ' should not be empty';
         } else if ($key == 'password') {
             if (strlen($value) < $min) {
-                $_SESSION['error-array'][] = $_SESSION[$key . '-error'][] = 'Invalid! ' . $key . " Should contain at least " . $min . " Characters";
+                $_SESSION['error-array'][] = $_SESSION[$key . '-error'][] = 'Invalid! ' . $key . " should contain at least " . $min . " Characters";
             } else if (strlen($value) >= $max) {
-                $_SESSION['error-array'][] = $_SESSION[$key . '-error'][] = 'Invalid! ' . $key . " Should not contain more than " . $max . " Characters";
+                $_SESSION['error-array'][] = $_SESSION[$key . '-error'][] = 'Invalid! ' . $key . " should not contain more than " . $max . " Characters";
             }
         } else if ($key == 'contact number') {
             if (strlen($value) != 11) {
@@ -47,6 +64,8 @@ function registerAccount($fname, $lname, $contact, $email, $password, $salt)
     $query = "INSERT INTO users (first_name, last_name, contact_number, email, password, salt, created_at, updated_at)
     VALUES('{$fname['first name']}','{$lname['last name']}','{$contact['contact number']}','{$email['email address']}','$password','$salt',NOW(),NOW())";
     run_mysql_query($query);
+    $_SESSION['reg-suc'] = 'Registered Successfully';
+    header('Location: Authentication.php');
 }
 
 $_SESSION['error-array'] = array();
@@ -66,98 +85,72 @@ if (isset($_POST['register'])) {
     validate($password, 8, 40);
     $cPassword = array('confirm password' => $_POST['confirm_password']);
     validate($cPassword);
-    $salt = bin2hex(openssl_random_pseudo_bytes(22));
-    $encrypted = md5($password['password'] . $salt);
 
-    registerAccount($fname, $lname, $contact, $email, $encrypted, $salt);
-    var_dump($_SESSION['error-array']);
+    if (!empty($_SESSION['error-array'])) {
+        header('Location: Authentication.php');
+        die();
+    } else {
+        $salt = bin2hex(openssl_random_pseudo_bytes(22));
+        $encrypted = md5($password['password'] . $salt);
+        registerAccount($fname, $lname, $contact, $email, $encrypted, $salt);
+    }
 } else if (isset($_POST['login'])) {
-    $query = "SELECT * FROM users WHERE email = '{$_POST['log-email']}'";
-    $user = fetch_record($query);
-    if (!empty($user)) {
-        $encrypted = md5($_POST['log-password'] . $user['salt']);
-        if ($user['password'] == $encrypted) {
+    $email = array('email address' => $_POST['log-email']);
+    logValidate($email);
+    $password = array('password' => $_POST['log-password']);
+    logValidate($password, 8, 40);
+
+    if (!empty($_SESSION['error-array'])) {
+        header('Location: Authentication.php');
+        die();
+    } else {
+        $query = "SELECT * FROM users WHERE email = '{$_POST['log-email']}'";
+        $user = fetch_record($query);
+        if (!empty($user)) {
+            $encrypted = md5($_POST['log-password'] . $user['salt']);
             if ($user['password'] == $encrypted) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['logged_in'] = TRUE;
+                if ($user['password'] == $encrypted) {
+                    $_SESSION['user_id'] = $user['user_id'];
+                    $_SESSION['first_name'] = $user['first_name'];
+                    $_SESSION['logged_in'] = TRUE;
+                    header('Location: success.php');
+                }
+            } else {
+                $_SESSION['error-array'][] = $_SESSION['log-email address-error'][] = 'Wrong Email/Password';
+                $_SESSION['error-array'][] = $_SESSION['log-password-error'][] = 'Wrong Email/Password';
+                header('Location: Authentication.php');
             }
         } else {
-            $_SESSION['error-array'][] = $_SESSION['login-error'] = 'Wrong Email/Password';
+            $_SESSION['error-array'][] = $_SESSION['log-email address-error'][] = 'Wrong Email/Password';
+            $_SESSION['error-array'][] = $_SESSION['log-password-error'][] = 'Wrong Email/Password';
+            header('Location: Authentication.php');
+        }
+    }
+} else if (isset($_POST['contact-submit'])) {
+    $contact = array('contact number' => $_POST['contact-forget']);
+    validate($contact);
+
+    if (!empty($_SESSION['error-array'])) {
+        header('Location: forgot.php');
+        die();
+    } else {
+        $salt = bin2hex(openssl_random_pseudo_bytes(22));
+        $encrypted = md5('village88' . $salt);
+        $selQuery = "SELECT * FROM users WHERE contact_number = '{$_POST['contact-forget']}'";
+        $updateQuery = "UPDATE users SET password = '$encrypted', salt ='$salt' WHERE (contact_number = '{$_POST['contact-forget']}')";
+        if (!empty(fetch_all($selQuery))) {
+            run_mysql_query($updateQuery);
+            $_SESSION['reg-suc'] = 'Password is now village88';
+            header('Location: forgot.php');
+            die();
+        } else {
+            $_SESSION['contact number-error'][] = 'Contact Number is not Existing';
+            header('Location: forgot.php');
+            die();
         }
     }
 } else {
     session_destroy();
+    header('Location: Authentication.php');
+    die();
 }
-
-?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-
-<body>
-    <form action="process.php" method="POST">
-        <label>
-            First Name:
-            <input type="text" name="fname">
-            <br>
-        </label>
-        <label>
-            Last Name:
-            <input type="text" name="lname">
-            <br>
-
-        </label>
-        <label>
-            Contact Number:
-            <input type="text" name="contact">
-            <br>
-
-        </label>
-        <label>
-            Email Address:
-            <input type="email" name="email">
-            <br>
-
-        </label>
-        <label>
-            Password:
-            <input type="password" name="password">
-            <br>
-
-        </label>
-        <label>
-            Confirm Password:
-            <input type="password" name="confirm_password">
-            <br>
-
-        </label>
-        <input type="submit" name="register" value="register">
-    </form>
-
-    <form action="process.php" method="POST">
-        <label>
-            Email Address:
-            <input type="email" name="log-email">
-            <br>
-
-        </label>
-        <label>
-            Password:
-            <input type="password" name="log-password">
-            <br>
-
-        </label>
-        <input type="submit" name="login" value="login">
-    </form>
-</body>
-
-</html>

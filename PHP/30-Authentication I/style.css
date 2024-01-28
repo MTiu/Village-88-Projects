@@ -1,6 +1,5 @@
 * {
-  font-family: sans-serif;
-  /* outline: 1px solid red; */
+  font-family: "Open Sans", sans-serif;
   color: #e0aaff;
 }
 body {
@@ -19,31 +18,141 @@ body li {
 body h2 {
   color: #4cc9f0;
 }
-body header {
+body .form-header {
   margin: 0;
   width: 100%;
   padding: 20px;
   color: #e0aaff;
   position: fixed;
-  left: 0;
-  top: 0;
+  text-align: center;
+  z-index: 2;
 }
 body header h1 {
   margin: 0;
   padding: 20px;
   display: inline-block;
   backdrop-filter: blur(15px) saturate(200%);
-  background-color: rgba(5, 18, 43, 0.76);
+  background-color: rgba(5, 18, 43, 0.1);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 2px solid rgba(255, 255, 255, 0.125);
+  position: relative;
+  right: 30px;
 }
-body #main-body {
+body #form-body {
   margin: 2% 8%;
-  width: 90%;
+  width: 70%;
   position: absolute;
   z-index: 1;
+  top: 12%;
+  left: 10%;
 }
-body #main-body .hero {
-  width: 95%;
-  margin: 3% 5%;
+body #form-body .success-text {
+  position: relative;
+  bottom: 25px;
+  text-align: center;
+  color: lightgreen;
+  font-size: 1.2rem;
+}
+body #form-body .login,
+body #form-body .register,
+body #form-body .reset {
+  width: 40%;
+  padding: 20px;
+  display: inline-block;
+  backdrop-filter: blur(15px) saturate(200%);
+  background-color: rgba(5, 18, 43, 0.1);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.125);
+}
+body #form-body .login h2,
+body #form-body .register h2,
+body #form-body .reset h2 {
+  margin: 20px 0 40px 0;
+  padding: 0 0 30px 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+body #form-body .login label,
+body #form-body .register label,
+body #form-body .reset label {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+body #form-body .login label input,
+body #form-body .register label input,
+body #form-body .reset label input {
+  display: block;
+  width: 205px;
+  padding: 12px 8px;
+  margin: 10px;
+  backdrop-filter: blur(15px) saturate(200%);
+  background-color: rgba(5, 18, 43);
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.125);
+}
+body #form-body .login .button,
+body #form-body .register .button,
+body #form-body .reset .button {
+  margin: 2%;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: rgba(5, 18, 43);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #4cc9f0;
+}
+body #form-body .login a,
+body #form-body .register a,
+body #form-body .reset a {
+  margin-left: 2%;
+}
+body #form-body .reset {
+  position: relative;
+  left: 25%;
+  height: auto;
+}
+body #form-body .reset input,
+body #form-body .reset label {
+  display: inline-block;
+}
+body #form-body .reset .contact-forget {
+  width: 480px;
+}
+body #form-body .register {
+  margin-right: 3%;
+}
+body #form-body .register .form-name {
+  width: 100%;
+}
+body #form-body .register .form-name label {
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+}
+body #form-body .register .form-name label input {
+  width: 80%;
+}
+body #form-body .register .form-password {
+  width: 100%;
+}
+body #form-body .register .form-password label {
+  vertical-align: top;
+  display: inline-block;
+  width: 49%;
+}
+body #form-body .register .form-password label input {
+  width: 80%;
+}
+body #form-body .login {
+  vertical-align: top;
+}
+body #form-body .error-emphasis {
+  outline: 1px solid red;
+}
+body #form-body .error-text {
+  font-size: 1rem;
+  color: red;
 }
