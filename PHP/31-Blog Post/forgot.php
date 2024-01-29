@@ -25,18 +25,16 @@ session_start();
         <section class="reset">
             <h2>Reset Password</h2>
             <p class="success-text"><?= (isset($_SESSION['reg-suc'])) ? $_SESSION['reg-suc'] : "" ?></p>
-            <?php unset($_SESSION['reg-suc']); ?>
+<?php unset($_SESSION['reg-suc']); ?>
             <form action="process.php" method="POST">
                 <label>
                     Contact Number
-                    <?php if (!empty($_SESSION['contact number-error'])) {
-                        foreach ($_SESSION['contact number-error'] as $msg) ?>
+<?php if (!empty($_SESSION['contact number-error'])) {foreach ($_SESSION['contact number-error'] as $msg) ?>
                         <input class="contact-forget error-emphasis" type="text" name="contact-forget">
                         <span class="error-text"><?= $msg ?></span>
-                    <?php } else { ?>
+<?php } else { ?>
                         <input class="contact-forget" type="text" name="contact-forget">
-                    <?php  }
-                    unset($_SESSION['contact number-error']) ?>
+<?php  }unset($_SESSION['contact number-error']) ?>
                     <input class="button" type="submit" value="Submit" name="contact-submit">
                 </label>
             </form>

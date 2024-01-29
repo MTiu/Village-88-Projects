@@ -26,18 +26,14 @@ session_start();
             <h2> <?= (isset($_SESSION['first_name'])) ? $_SESSION['first_name'] : "Guest!" ?></h2>
             <a href="process.php">Log Out</a>
         </section>
-        <?php if ((!empty($_SESSION['error-array'])) || (!empty($_SESSION['reg-suc']))) { ?>
+<?php if ((!empty($_SESSION['error-array'])) || (!empty($_SESSION['reg-suc']))) { ?>
             <section>
                 <h2>Error Tab:</h2>
                 <p class="success-text"><?= (isset($_SESSION['reg-suc'])) ? $_SESSION['reg-suc'] : "" ?></p>
                 <p class="error-text"><?= (isset($_SESSION['review-error'])) ? $_SESSION['review-error'][0] : "" ?></p>
                 <p class="error-text"><?= (isset($_SESSION['reply-error'])) ? $_SESSION['reply-error'][0] : "" ?></p>
             </section>
-        <?php }
-        unset($_SESSION['reg-suc']);
-        unset($_SESSION['reply-error']);
-        unset($_SESSION['review-error']);
-        ?>
+<?php }unset($_SESSION['reg-suc']); unset($_SESSION['reply-error']); unset($_SESSION['review-error']);?>
     </header>
     <main id="blogger-body">
         <section class="blog-content">
@@ -52,7 +48,7 @@ session_start();
             </div>
         </section>
 
-        <?php if (isset($_SESSION['logged_in'])) { ?>
+<?php if (isset($_SESSION['logged_in'])) { ?>
             <section class="write-review">
                 <h1>Leave a Review?</h1>
                 <form action="process.php" method="post">
@@ -60,30 +56,27 @@ session_start();
                     <input type="submit" name='review' value='Review'>
                 </form>
             </section>
-        <?php  } ?>
-        <?php if (isset($_SESSION['reviews'])) { ?>
-            <?php foreach ($_SESSION['reviews'] as $review) { ?>
-                <section class="review-body">
-                    <h2> <?= $review['full_name'] . " (" . $review['created_at'] . ")"  ?></h2>
-                    <p> <?= $review['content']  ?> </p>
-                    <section class="reply-body">
-                        <?php foreach ($_SESSION['replies'] as $reply) {
-                            if ($review['review_id'] == $reply['review_id']) { ?>
-                                <h2><?= $reply['full_name'] . " (" . $reply['created_at'] . ")"   ?></h2>
-                                <p><?= $reply['content'] ?> </p>
-                        <?php }
-                        } ?>
-                        <?php if (isset($_SESSION['logged_in'])) { ?>
-                            <form action="process.php" method="post">
-                                <textarea class="reply-textarea" name="reply-message"></textarea>
-                                <input type="hidden" name='review-id' value=<?= $review['review_id'] ?>>
-                                <input class="reply-button" type="submit" name='reply' value='Reply'>
-                            <?php  } ?>
-                            </form>
-                    </section>
-                </section>
-        <?php }
-        } ?>
+<?php  } ?>
+<?php if (isset($_SESSION['reviews'])) { ?>
+<?php foreach ($_SESSION['reviews'] as $review) { ?>
+        <section class="review-body">
+            <h2> <?= $review['full_name'] . " (" . $review['created_at'] . ")"  ?></h2>
+            <p> <?= $review['content']  ?> </p>
+            <section class="reply-body">
+<?php foreach ($_SESSION['replies'] as $reply) {if ($review['review_id'] == $reply['review_id']) { ?>
+                    <h2><?= $reply['full_name'] . " (" . $reply['created_at'] . ")"   ?></h2>
+                    <p><?= $reply['content'] ?> </p>
+<?php } } ?>
+<?php if (isset($_SESSION['logged_in'])) { ?>
+                <form action="process.php" method="post">
+                    <textarea class="reply-textarea" name="reply-message"></textarea>
+                    <input type="hidden" name='review-id' value=<?= $review['review_id'] ?>>
+                    <input class="reply-button" type="submit" name='reply' value='Reply'>
+<?php  } ?>
+                </form>
+            </section>
+        </section>
+<?php }} ?>
     </main>
 </body>
 
