@@ -1,0 +1,23 @@
+textarea {
+    resize: none;
+    width: 500px;
+    height: 150px;
+}
+.messages,
+.comments {
+    border-top: 4px solid black;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+form {
+    margin-top: 50px;
+}
+
+input[type="submit"] {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    background-color: blue;
+    color: white;
+}
