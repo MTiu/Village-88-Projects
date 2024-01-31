@@ -1,16 +1,23 @@
 <?php
 session_start();
+ini_set('auto_detect_line_endings', true);
 $pageItems = 50;
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $startIndex = ($page - 1) * $pageItems;
+function pageCounter($file){
+    $handler = fopen($file, "r");
+        $csvRowCount = 0;
+            if ( $handler !== FALSE) { $csvRowCount = 0;
+            while (($data = fgetcsv($handler)) !== FALSE) { 
+                $csvRowCount++;
+            }
+        }fclose($handler);
+        return $csvRowCount = ceil($csvRowCount/52);
+    }
 
-
-// $totalPages = pageCounter($_SESSION['csv-name']);
-// $csvhandler = fopen($_SESSION['csv-name'], "r");
-// $header = fgetcsv($csvhandler);
-var_dump($_SESSION['csv-name']);
-var_dump($_SESSION['header']);
-var_dump($_SESSION['csv-handler']);
+$totalPages = pageCounter("uploads/".$_SESSION['csv-name']);
+$csvhandler = fopen("uploads/".$_SESSION['csv-name'], "r");
+$header = fgetcsv($csvhandler);
 
 ?>
 
@@ -30,13 +37,13 @@ var_dump($_SESSION['csv-handler']);
         <table>
             <thead>
                 <tr>
-<?php for ($i = 0; $i < count($_SESSION['header']); $i++) { ?>
-                <th><?= $_SESSION['header'][$i]?></th>
+<?php for ($i = 0; $i < count($header); $i++) { ?>
+                <th><?= $header[$i]?></th>
 <?php } ?>
                 </tr>
             </thead>
-<?php if ( $_SESSION['csv-handler'] !== FALSE) { $rowCount = 0; ?>
-<?php while (($data = fgetcsv($_SESSION['csv-handler'])) !== FALSE) { ?>
+<?php if ( $csvhandler !== FALSE) { $rowCount = 0; ?>
+<?php while (($data = fgetcsv($csvhandler)) !== FALSE) { ?>
 <?php if ($rowCount >= $startIndex && $rowCount < ($startIndex + $pageItems)) { ?>
             <tbody>
                 <tr>
@@ -52,7 +59,7 @@ var_dump($_SESSION['csv-handler']);
         </table>
     </section>
         <div class="pages">
-<?php for($i=1; $i<=$_SESSION['total-pages']; $i++){ ?>
+<?php for($i=1; $i<=$totalPages; $i++){ ?>
             <a href="?page= <?= $i ?>"> <?=$i?></a>
 <?php }?>
         </div>
