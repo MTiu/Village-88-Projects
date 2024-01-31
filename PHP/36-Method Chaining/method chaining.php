@@ -40,11 +40,19 @@ class Item{
         return "Name: $name, Price: $price, Stock: $stock, Sold: $sold";
     }
     public function buy(){
-        $this->sold++;
+        if($this-> stock <= 0){
+            echo "No stock Left <br>";
+            return $this;
+        }
+        $this->stock--;
         echo "Buying! <br>";
         return $this;
     }
     public function return(){
+        if($this->sold <= 0){
+            echo "Nothing Left to Return <br>";
+            return $this;
+        }
         $this->sold--;
         echo "Returning! <br>";
         return $this;

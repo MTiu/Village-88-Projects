@@ -19,17 +19,25 @@ class Item{
         return "Name: $name, Price: $price, Stock: $stock, Sold: $sold";
     }
     public function buy(){
-        $this->sold++;
+        if($this-> stock <= 0){
+            return "No stock Left";
+        }
+        $this->stock--;
         return "Buying!";
     }
     public function return(){
+        if($this->sold <= 0){
+            return "Nothing Left to Return";
+        }
+        else{
         $this->sold--;
         return "Returning!";
+    }
     }
 }
 $item1 = new Item('Figure', 24, 50);
 $item2 = new Item('Article', 25, 60);
-$item3 = new Item('PC', 26, 60, 3);
+$item3 = new Item('PC', 26, 60, 2);
 ?>
 <!-- Time Completed 10 to 20 minutes -->
 <!DOCTYPE html>

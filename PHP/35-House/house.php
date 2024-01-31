@@ -23,7 +23,7 @@
         echo "<br>" .$this->show_all() . "<br>";
     }
     public function show_all(){
-        return "Location: {$this->location}, Price: {$this->price}, lot: {$this->lot}, Type: {$this->type}, Discount: {$this->discount}, Total Price: {$this->totalPrice}";
+        return "Location: {$this->location}, <br> Price: {$this->price}, <br> lot: {$this->lot},<br> Type: {$this->type},<br> Discount: {$this->discount}, Total Price: {$this->totalPrice}";
     }
 }
 $house1 = new House('La Union',1500000,'100sqm',1);

@@ -1,0 +1,81 @@
+* {
+    font-family: sans-serif;
+    font-size: 32px;
+    /* outline: 1px solid red; */
+}
+
+label {
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 2px solid black;
+    padding: 10px;
+}
+th {
+    outline: 2px solid black;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.table-body {
+    width: 95%;
+    height: 700px;
+    margin: 2%;
+    overflow-y: scroll;
+}
+
+.pages {
+    margin: 20px;
+}
+
+.pages a {
+    padding: 10px 25px;
+    border: 2px solid black;
+    text-decoration: none;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    margin: 0 0 20px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: block;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: blue;
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+main {
+    margin: 5%;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
