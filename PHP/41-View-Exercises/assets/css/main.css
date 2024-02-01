@@ -1,0 +1,24 @@
+main{
+    padding: 20px;
+}
+
+
+img{
+    width: 400px;
+    margin: 20px;
+}
+
+a{
+    padding: 20px;
+    text-decoration: none;
+    background-color: green;
+    color: white;
+}
+
+.tab{
+    margin-left: 40px;
+}
+
+.emphasis{
+    color: red;
+}
