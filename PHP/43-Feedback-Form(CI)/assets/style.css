@@ -130,3 +130,9 @@ section {
 .submitted-feedback{
     margin: 2% 33%;
 }
+
+.reason{
+    overflow: auto;
+    width: 420px;
+    height: 150px;
+}

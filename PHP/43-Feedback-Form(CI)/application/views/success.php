@@ -14,7 +14,6 @@
         <p>Your Name (Optional): </p> 
         <p>Course Tile: </p> 
         <p>Given Score(1-10): </p> 
-        <p>Reason:</p> 
     </section>
     <section class="answer-box">
         <p class="answer">
@@ -38,14 +37,15 @@
                 echo $data['score'];
             }?>
         </p>
-        <p class="answer">
-        <?php if(empty($data['reason'])){
-                echo 'N/A';
-            } else {
-                echo $data['reason'];
-            }?>
-        </p>
     </section>
+    <p>Reason:</p> 
+    <p class="reason">
+    <?php if(empty($data['reason'])){
+            echo 'N/A';
+        } else {
+            echo $data['reason'];
+        }?>
+    </p>
     <a href="submitForm">Return</a>
     </main>
 </body>
