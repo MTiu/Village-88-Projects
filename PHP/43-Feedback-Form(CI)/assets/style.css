@@ -1,0 +1,31 @@
+*{
+    outline: 1px solid red;
+}
+
+main{
+
+    padding: 50px;
+    margin: 10% 33%;
+}
+
+h1{
+    text-align: center;
+}
+
+textarea{
+    width: 60%;
+    height: 100px;
+    resize: none;
+}
+
+input{
+    margin-top: 10px;
+}
+
+a{
+    
+}
+
+.feedback input{
+    display: block;
+}
