@@ -7,12 +7,45 @@
     <title>Success!</title>
 </head>
 <body>
-    <main>
+    <img class="submitted-img" src="<?php echo base_url('assets/rem submitted.png')?>" alt="Picture of Rem">
+    <main class="submitted-feedback">
     <h1>Submitted Entry</h1>
-    <p>Your Name (Optional):</p> <?php echo $data['name']?>
-    <p>Course Tile:</p> <?php echo $data['course']?>
-    <p>Given Score(1-10):</p> <?php echo $data['score']?>
-    <p>Reason:</p> <?php echo $data['reason']?>
+    <section>
+        <p>Your Name (Optional): </p> 
+        <p>Course Tile: </p> 
+        <p>Given Score(1-10): </p> 
+        <p>Reason:</p> 
+    </section>
+    <section class="answer-box">
+        <p class="answer">
+        <?php if(empty($data['name'])){
+            echo 'N/A';
+        } else {
+            echo $data['name'];
+        }?>
+        </p>
+        <p class="answer">
+        <?php if(empty($data['course'])){
+            echo 'N/A';
+            } else {
+                echo $data['course'];
+            }?>
+        </p>
+        <p class="answer">
+        <?php if(empty($data['score'])){
+                echo 'N/A';
+            } else {
+                echo $data['score'];
+            }?>
+        </p>
+        <p class="answer">
+        <?php if(empty($data['reason'])){
+                echo 'N/A';
+            } else {
+                echo $data['reason'];
+            }?>
+        </p>
+    </section>
     <a href="submitForm">Return</a>
     </main>
 </body>

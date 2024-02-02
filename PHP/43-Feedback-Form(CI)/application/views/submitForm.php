@@ -7,21 +7,22 @@
     <title>Submit Feedback</title>
 </head>
 <body>
+    <img class="submit-img" src="<?php echo base_url('assets/rem submitting.png')?>" alt="Picture of Rem">
     <main>
     <h1>Feedback Form</h1>
     <form class="feedback" action="success" method="post">
         <label>
-            Your Name (Optional)
+            Your Name (Optional):
             <input type="text" name='name' placeholder="Your Name">
         </label>
-        <p>Course Title</p>
-        <select name="course">
+        <p>Course Title:</p>
+        <select name="course" class="course">
             <option value="PHP Track" name='php'>PHP Track</option>
             <option value="CSS Track" name='css'>CSS Track</option>
             <option value="HTML Track" name='html'>HTML Track</option>
             <option value="JavaScript Track" name='js'>JavaScript Track</option>
         </select>
-        <p>Given Score</p>
+        <p>Given Score:</p>
         <select name="score">
             <option value="1" name="score1">1</option>
             <option value="2" name="score2">2</option>
@@ -34,9 +35,9 @@
             <option value="9" name="score9">9</option>
             <option value="10" name="score10">10</option>
         </select>
-        <p>Reason</p>
+        <p>Reason:</p>
         <textarea name="reason" placeholder="Place your inner thoughts Here!"></textarea>
-        <input type="submit">
+        <input type="submit" class="submit-button">
     </form>
     </main>
 </body>
