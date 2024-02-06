@@ -1,0 +1,186 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: #e8eef1;
+}
+
+header {
+	background-color: #1e3d58;
+	padding: 35px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+header a,
+header h1 {
+	color: #e8eef1;
+	font-size: 1.8rem;
+}
+
+header a {
+	color: #43b0f1;
+	text-decoration: none;
+}
+
+img {
+	height: 400px;
+}
+
+section {
+	margin: 50px 0;
+}
+
+.p-cont{
+    text-align: center;
+}
+
+.catalog {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	text-align: center;
+	color: #e8eef1;
+}
+
+.catalog section {
+	padding: 40px;
+	background-color: #1e3d58;
+}
+
+.catalog h2 {
+	font-size: 1.7rem;
+}
+
+.catalog .price {
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: #43b0f1;
+}
+
+.catalog .price-tag {
+	font-size: 1.3rem;
+	font-weight: 1000;
+	color: red;
+}
+
+.catalog input {
+	width: 100%;
+	margin: 1%;
+	padding: 12px 0;
+}
+
+.catalog input[type="submit"] {
+	color: white;
+	background-color: #057dcd;
+	border: 0;
+}
+
+.catalog .value{
+    color: red;
+}
+
+.cart {
+	margin-left: 9%;
+}
+
+.cart h2 {
+	font-size: 2rem;
+	margin-bottom: 30px;
+}
+
+.cart h3 {
+	margin-left: 12%;
+}
+
+.cart table {
+	border-collapse: collapse;
+}
+
+.cart th,
+.cart td {
+	border: 1px solid black;
+	padding: 20px;
+}
+
+.cart th {
+	background-color: #1e3d58;
+	color: white;
+}
+
+.cart label {
+	width: 20%;
+	margin-bottom: 20px;
+	display: block;
+	text-align: right;
+}
+
+.cart input {
+	width: 55%;
+	padding: 10px;
+	margin-left: 10%;
+}
+
+.cart input[type="submit"] {
+	width: auto;
+	margin: 0;
+	padding: 10px 20px;
+	position: relative;
+	left: 15.2%;
+}
+
+.delete {
+	width: 50px;
+	height: 50px;
+}
+
+.book {
+	position: absolute;
+	right: 400px;
+	top: 280px;
+	border: 5px solid #1e3d58;
+	outline: 2px solid black;
+}
+
+.thanks {
+    margin: 2% 40%;
+    text-align: center;
+}
+
+.thanks a{
+    padding: 20px;
+    margin-top: 20px;
+    color: white;
+    background-color: #1e3d58;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.thanks img{
+    border: 3px solid #1e3d58;
+}
+
+.error, .success{
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid black;
+
+}
+
+.error{
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
+
+.success{
+    background-color: darkgreen;
+    color: white;
+    text-align: center;
+    display: inline-block;
+}
