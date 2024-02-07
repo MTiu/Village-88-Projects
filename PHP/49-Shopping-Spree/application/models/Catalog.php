@@ -73,9 +73,6 @@ class Catalog extends CI_Model
         $item_quantity = $this->db->query("SELECT quantity FROM items WHERE item_id = ?", $cart['item_id'])->row_array();
         $cart_quantity = $this->db->query("SELECT cart_item_quantity FROM carts WHERE item_id = ?", $cart['item_id'])->row_array();
 
-        var_dump($item_quantity);
-        var_dump($cart_quantity);
-
         $quantity =  array_values($item_quantity)[0] - array_values($cart_quantity)[0];
         $query = "UPDATE items SET quantity = ? WHERE item_id = ?";
         $values = array($quantity, $cart['item_id']);

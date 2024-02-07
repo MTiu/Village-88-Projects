@@ -66,7 +66,6 @@ class Catalogs extends CI_Controller
 
 	public function billing()
 	{
-
 		$cart_items = $this->Catalog->get_all_cart_items();
 		if($cart_items){
 			foreach ($cart_items as $values) {
@@ -78,6 +77,5 @@ class Catalogs extends CI_Controller
 			$this->session->set_flashdata('error', 'NO ITEMS IN CART!');
 			redirect('cart');
 		}
-
 	}
 }
