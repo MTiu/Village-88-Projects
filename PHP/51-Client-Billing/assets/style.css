@@ -1,0 +1,16 @@
+main{
+    width: 80%;
+    margin: 2% 5%;
+}
+
+
+table{
+    width: 50%;
+    margin-bottom: 50px;
+    border-collapse: collapse;
+}
+
+th,td{
+    border: 1px solid black;
+    padding: 8px;
+}
