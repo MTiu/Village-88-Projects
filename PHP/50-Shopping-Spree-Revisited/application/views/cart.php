@@ -53,7 +53,7 @@
         </section>
         <section>
             <h2>Billing Info</h2>
-            <?= form_open(base_url('cart/billing'), "method=post")?>
+<?= form_open(base_url('cart/billing'), "method=post")?>
             
                 <label>
                     Name: <input type="text">
@@ -66,7 +66,7 @@
                 </label>
                 <input type="submit" name="bought">
                 
-            <?= form_close() ?>
+<?= form_close() ?>
         </section>
     </main>
     <img src="<?= base_url('assets/img/book.jpg')?>" class="book" alt="image of book anime original art" >
