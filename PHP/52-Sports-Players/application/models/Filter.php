@@ -10,7 +10,8 @@ class Filter extends CI_Model
         $this->form_validation->set_rules('character-name', 'Character Name', 'trim|min_length[3]|max_length[80]');
         $this->form_validation->set_error_delimiters("<p class = 'error'>", '</p>');
     }
-
+    /* This Function Gets all the characters in the database
+    It also has its own default value which uses the eval_arr */
     public function get_all_characters()
     {
         return $this->db->query("SELECT * FROM characters")->result_array();
@@ -34,7 +35,7 @@ class Filter extends CI_Model
         $values = array($safe_gender,$safe_weapon_id,'%'.$safe_name.'%');
         return $this->db->query($query,$values)->result_array();
     }
-
+    /* This is mostly used for validation in the controller */
     public function validate()
     {
         if ($this->form_validation->run()) {
@@ -43,6 +44,8 @@ class Filter extends CI_Model
             return array(validation_errors());
         }
     }
+    /* This function evaluates if the array that is passed to the model is empty 
+    so that it can assign a default value to the array */
     private function eval_arr($arr,$value){
         if(empty($arr)){
             return $arr = $value;

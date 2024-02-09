@@ -8,14 +8,13 @@ class Filters extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Filter');
-
 	}
 
 	public function index()
 	{
 		if ($this->session->flashdata('errors')) {
-			$data['error']=$this->session->flashdata('errors');
-		} 
+			$data['error'] = $this->session->flashdata('errors');
+		}
 		if ($this->session->userdata('data')) {
 			$data['data'] = $this->session->userdata('data');
 			$this->load->view('fire-emblem', $data);
@@ -23,10 +22,7 @@ class Filters extends CI_Controller
 			$data['data'] = $this->Filter->get_all_characters();
 			$this->load->view('fire-emblem', $data);
 		}
-
-
 	}
-
 
 	public function process()
 	{

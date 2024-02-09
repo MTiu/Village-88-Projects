@@ -56,7 +56,7 @@
 			</form>
 		</section>
 		<section class="characters">
-			<?php foreach ($data as $characters) { ?>
+<?php foreach ($data as $characters) { ?>
 				<div class="image-cont">
 					<img src=<?= $characters['image'] ?> alt="Image of <?= $characters['image'] ?>">
 					<p><?= $characters['first_name'] ." ". $characters['last_name']?></p>
