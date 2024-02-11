@@ -1,0 +1,63 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* outline: 1px solid red; */
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+header {
+	padding: 30px;
+	background-color: #1e3d58;
+	color: #e8eef1;
+}
+
+header section,
+.access-title {
+	width: 80%;
+}
+
+.access-title{
+    margin: 0 5%;
+}
+
+header h1 {
+	font-size: 2.7rem;
+}
+
+header a {
+	text-decoration: none;
+	font-size: 2rem;
+	color: #43b0f1;
+}
+
+header section,
+header section h1,
+header a,
+.access-title {
+	display: inline-block;
+	margin-right: 2%;
+	vertical-align: center;
+}
+
+input[type="submit"] {
+	background-color: #057dcd;
+	color: white;
+}
+
+input {
+	padding: 8px;
+}
+
+main {
+	margin: 2% 4%;
+}
+
+.error{
+	display: inline-block;
+	color: red;
+}
+
+.success{
+	color: green;
+}

@@ -1,0 +1,234 @@
+.dashboard section {
+	margin-bottom: 30px;
+}
+
+.dashboard section h1,
+.dashboard section a {
+	display: inline-block;
+	font-size: 2.5rem;
+}
+
+.dashboard section h1 {
+	margin-left: 4%;
+	margin-right: 50%;
+}
+
+.dashboard section a {
+	font-size: 1.8rem;
+	padding: 8px;
+	text-decoration: none;
+	background-color: #057dcd;
+	color: white;
+}
+
+.dashboard table {
+	width: 100%;
+}
+
+th {
+	background-color: #1e3d58;
+	color: #e8eef1;
+}
+
+td {
+	background-color: rgba(30, 61, 88, 0.2);
+}
+
+tbody {
+	overflow: auto;
+}
+
+th,
+td {
+	text-align: center;
+	padding: 20px;
+}
+
+.dashboard form {
+	margin-left: 4%;
+}
+
+.dashboard label {
+	width: 21%;
+	margin: 1% 0;
+	display: block;
+	font-size: 1.3rem;
+}
+
+.dashboard input,
+.dashboard textarea {
+	width: 100%;
+	margin-top: 10px;
+}
+
+.dashboard textarea {
+	display: inline-block;
+	height: 200px;
+}
+
+.dashboard input[type="number"] {
+	display: block;
+	width: 40px;
+}
+
+.dashboard img {
+	width: 100px;
+}
+
+/* This part is for the profile styles */
+
+.profile section {
+	color: white;
+	padding: 3%;
+	width: 40%;
+	margin: 2% 4.9%;
+	display: inline-block;
+	vertical-align: top;
+	background-color: #1e3d58;
+}
+
+.profile label {
+	width: 100%;
+	margin: 4% 0;
+	display: block;
+	font-size: 1.3rem;
+}
+
+.profile input {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/* This part is for the Product styles */
+
+.product-cont {
+	height: auto;
+	margin: 4%;
+	width: 90%;
+	padding: 40px;
+	border-bottom: 5px solid #1e3d58;
+}
+
+.product-cont h1 {
+	font-size: 4rem;
+	color: #1e3d58;
+	border-bottom: 5px solid #1e3d58;
+}
+
+.product-cont img,
+.product-info {
+	display: inline-block;
+	vertical-align: top;
+	margin: 3%;
+}
+
+.product img {
+	width: 25%;
+}
+
+.product-info {
+	width: 50%;
+	height: 78%;
+	padding: 40px;
+	border-left: 2px solid #1e3d58;
+	color: #1e3d58;
+}
+
+.product-info p {
+	width: 100%;
+	margin: 3% 2%;
+	font-size: 1.5rem;
+}
+.product-info h2 {
+	font-size: 2rem;
+	border-bottom: 1px solid white;
+}
+
+/* Comments part of style */
+
+.post-review,
+.review {
+	margin: 0 4%;
+	width: 90%;
+	padding: 40px;
+}
+
+.post-review h2 {
+	padding: 20px;
+	color: white;
+	background-color: #1e3d58;
+}
+
+.post-review textarea {
+	font-size: 1.5rem;
+	padding: 10px;
+	width: 100%;
+	height: 200px;
+}
+
+.post-review input[type="submit"] {
+	font-size: 1.2rem;
+	padding: 5px 10px;
+	margin-top: 10px;
+	position: relative;
+	left: 95%;
+}
+
+.review {
+	margin-top: 0;
+	font-size: 1.4rem;
+}
+
+.review-desc,
+.reply-desc,
+.reply-cont,
+.post-reply {
+	margin-top: 20px;
+}
+
+.review .date,
+.review h3 {
+	display: inline-block;
+}
+
+.review h3 {
+	width: 80%;
+}
+
+.review .reply-cont h3 {
+	width: 70%;
+	margin-left: 10%;
+}
+
+.review-desc,
+.reply-desc {
+	padding: 20px;
+	border-left: 1px solid #1e3d58;
+	border-bottom: 1px solid #1e3d58;
+}
+
+.reply-desc {
+	margin-left: 10%;
+}
+
+.post-reply {
+	margin-left: 10%;
+}
+
+.post-reply textarea {
+	border: none;
+	border-left: 1px solid #1e3d58;
+	border-bottom: 1px solid #1e3d58;
+	font-size: 1.4rem;
+	padding: 10px;
+	width: 100%;
+	height: 100px;
+}
+
+.post-reply input[type="submit"] {
+	font-size: 1.2rem;
+	padding: 5px 10px;
+	margin-top: 10px;
+	position: relative;
+	left: 95%;
+}
