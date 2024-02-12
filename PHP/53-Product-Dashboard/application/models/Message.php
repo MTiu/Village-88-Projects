@@ -31,6 +31,7 @@ class Message extends CI_Model
         $result = $this->db->query("SELECT CONCAT(users.first_name, ' ', users.last_name) AS user, replies.created_at AS date, reply_description AS reply, review_id
                                 FROM replies 
                                 INNER JOIN users ON users.user_id = replies.user_id
+                                ORDER BY date
         ")->result_array();
 
         foreach ($result as $key => $value) {
