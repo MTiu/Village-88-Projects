@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pokemon TCG</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        function getPokemon(number){
+            $.get("https://api.pokemontcg.io/v2/cards/ex11-"+number,function(pokemon){     
+                console.log(pokemon.data); 
+                var image = "<img src='" +pokemon.data.images.large + "' id='"+number+"' alt = 'picture of pokemon!'>";
+                $("#pokemon-cont").append(image);
+                $('#'+number).click(function (){
+                var pokemon_modal = "<h1>Name: " + pokemon.data.name + "</h1>";
+                pokemon_modal += image;
+                pokemon_modal += '<h2>Types</h2>';
+                for (let x = 0; x<pokemon.data.types.length; x++){
+                    pokemon_modal += "<p>" + pokemon.data.types[x] + "</p>";
+                }
+                pokemon_modal +=  "<p> <span class='emphasis'>HP:</span> " + pokemon.data.hp + "</p>";
+                pokemon_modal += "<p> <span class='emphasis'>Evolves from:</span> " + pokemon.data.evolvesFrom + "</p>";
+                $("#modal").html(pokemon_modal);
+                $("#modal").fadeToggle();
+                });
+            },"json");
+        }
+
+        for(var i = 1; i<=100; i++){
+            setTimeout(getPokemon,i * 1200,i);
+        }
+        });
+    </script>
+</head>
+<body>
+    <dialog id="modal"></dialog>
+    <div id="pokemon-cont"></div>
+</body>
+</html>
