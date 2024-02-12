@@ -8,7 +8,6 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Product');
-        $this->output->enable_profiler(TRUE);
     }
 
     public function index()

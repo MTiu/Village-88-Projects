@@ -8,7 +8,6 @@ class Users extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('User');
-		$this->output->enable_profiler(TRUE);
 	}
 
 	public function index()

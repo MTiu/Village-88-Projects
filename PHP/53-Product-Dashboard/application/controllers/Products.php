@@ -8,7 +8,6 @@ class Products extends CI_Controller
         parent::__construct();
         $this->load->model('Product');
         $this->load->model('Message');
-        $this->output->enable_profiler(TRUE);
     }
 
     public function new()
