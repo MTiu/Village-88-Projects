@@ -26,11 +26,13 @@
 }
 
 th {
+	font-size: 1.5rem;
 	background-color: #1e3d58;
 	color: #e8eef1;
 }
 
 td {
+	font-size: 1.2rem;
 	background-color: rgba(30, 61, 88, 0.2);
 }
 
@@ -63,15 +65,19 @@ td {
 
 .dashboard textarea {
 	display: inline-block;
-	height: 200px;
+	height: 120px;
 }
 
 .dashboard input[type="number"] {
 	display: block;
-	width: 40px;
+	width: 60px;
 }
 
 .dashboard img {
+	width: 200px;
+}
+
+.dashboard input[type="submit"] {
 	width: 100px;
 }
 

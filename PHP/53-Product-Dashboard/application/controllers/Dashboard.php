@@ -3,16 +3,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller
 {
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Product');
+        $this->output->enable_profiler(TRUE);
+    }
+
     public function index()
     {
-        $user = $this->validate_user();
-        $this->load->view('template/dashboard-header');
-        $this->load->view('dashboard/Product-Dashboard');
+        $this->validate_user();
+        if ($this->session->userdata('admin')) {
+            $data['products'] = $this->Product->get_all_products();
+            $data['admin'] = $this->session->userdata('admin');
+            $this->load->view('template/dashboard-header');
+            $this->load->view('dashboard/Product-Dashboard', $data);
+        } else {
+            $data['products'] = $this->Product->get_all_products();
+            $this->load->view('template/dashboard-header');
+            $this->load->view('dashboard/Product-Dashboard',$data);
+        }
     }
-    private function validate_user(){
+
+    private function validate_user()
+    {
         if (!$this->session->userdata('user_id')) {
             redirect('/');
-        } else if($this->session->userdata('admin')){
+        } else if ($this->session->userdata('admin')) {
             return 'admin';
         }
         return 'user';

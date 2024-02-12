@@ -1,6 +1,6 @@
 
     <main class="profile">
-        <?= ($success) ? $success : '' ?>
+        <?= (isset($success)) ? $success : '' ?>
         <h1>Edit Profile</h1>
         <section class="edit-information">
             <h1>Edit Information</h1>

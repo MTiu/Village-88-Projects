@@ -17,8 +17,8 @@ header section,
 	width: 80%;
 }
 
-.access-title{
-    margin: 0 5%;
+.access-title {
+	margin: 0 5%;
 }
 
 header h1 {
@@ -49,15 +49,64 @@ input {
 	padding: 8px;
 }
 
+textarea{
+	resize: none;
+	padding: 8px;
+	font-size: 1.2rem;
+}
+
 main {
 	margin: 2% 4%;
 }
 
-.error{
+.error {
 	display: inline-block;
 	color: red;
 }
 
-.success{
+.success {
 	color: green;
+}
+
+.success-popup, .error-popup{
+	font-size: 1.2rem;
+	text-align: center;
+	padding: 20px;
+	background-color: darkgreen;
+	color: white;
+	border: 1px solid black;
+	margin: 10px 0;
+}
+
+.error-popup{
+	background-color: darkred;
+}
+
+.remove {
+	text-align: center;
+}
+
+.remove img {
+	width: 400px;
+}
+
+.remove h2 {
+	font-size: 2rem;
+}
+
+.confirm-button,
+.decline-button {
+	margin-top: 20px;
+	padding: 20px;
+	display: inline-block;
+	border: 1px solid black;
+	color: white;
+	text-decoration: none;
+}
+
+.confirm-button{
+	background-color: darkgreen;
+}
+.decline-button{
+	background-color: darkred;
 }

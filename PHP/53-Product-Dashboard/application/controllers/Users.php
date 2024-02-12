@@ -122,18 +122,18 @@ class Users extends CI_Controller
 		if ($access['validation'] != 'success') {
 			$this->session->set_flashdata('errors', $access);
 			redirect('users/edit');
-			if ($this->session->userdata('user_pass') != $this->input->post('old-password')) {
-				$access['validation'] = array(
-					'old-password' => "<span class='error'>Old Password wrong</span>",
-					'new-password' => form_error('new-password'),
-					'conf-password' => form_error('conf-password'),
-				);
-				$this->session->set_flashdata('errors', $access);
-				redirect('users/edit');
-			}
+		} else if ($this->session->userdata('user_pass') != $this->input->post('old-password')) {
+			$access['validation'] = array(
+				'old-password' => "<span class='error'>Old Password wrong</span>",
+				'new-password' => form_error('new-password'),
+				'conf-password' => form_error('conf-password'),
+			);
+			$this->session->set_flashdata('errors', $access);
+			redirect('users/edit');
 		} else {
-			$this->User->edit_user_password($this->session->userdata('user_id'),$this->input->post());
-			$this->session->set_flashdata('success', "<p class= 'success'>Successfully Changed Password</p>");
+			$this->User->edit_user_password($this->session->userdata('user_id'), $this->input->post());
+			$this->session->set_userdata('user_pass', $this->input->post('new-password'));
+			$this->session->set_flashdata('success', "<p class= 'success-popup'>Successfully Changed Password</p>");
 			redirect('users/edit');
 		}
 	}
