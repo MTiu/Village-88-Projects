@@ -1,0 +1,15 @@
+.cat{
+    padding: 30px;
+    margin: 20px 5px;
+    display: inline-block;
+    border: 1px solid red;
+    width: 500px;
+    height: 400px;
+    vertical-align: top;
+}
+
+.cat img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}

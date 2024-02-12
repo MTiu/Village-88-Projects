@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Kittens</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.get("https://fakerapi.it/api/v1/images?_quantity=100&_type=kittens",function(linked){
+                console.log(linked);
+                var html_cats = "<h1>Cute Cats!</h1>"
+                for(var i = 0; i<linked.data.length;i++){
+                    html_cats += "<div class = 'cat'>"
+                    html_cats+= "<h2>" + linked.data[i].title + "</h2>";
+                    html_cats+= "<p>" + linked.data[i].description + "</p>";
+                    html_cats+= "<img src='"+ linked.data[i].url +"' alt = 'image of a cat'>";
+                    html_cats += "</div>"
+                    console.log (linked.data[i]);
+                }
+                $("body").html(html_cats);
+            },"json");
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>
