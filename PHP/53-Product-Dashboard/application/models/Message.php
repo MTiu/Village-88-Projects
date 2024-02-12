@@ -19,7 +19,7 @@ class Message extends CI_Model
                                 FROM reviews 
                                 INNER JOIN users ON users.user_id = reviews.user_id
                                 WHERE reviews.product_id = ?
-                                ORDER BY date
+                                ORDER BY date DESC
                     ", $safe_id)->result_array();
         foreach ($result as $key => $value) {
             $result[$key]['date'] = $this->calculateTime($result[$key]['date']);
