@@ -10,7 +10,10 @@ class Message extends CI_Model
         $this->form_validation->set_error_delimiters('<p class="error-popup">', '</p>');
         date_default_timezone_set('Asia/Manila');
     }
-
+    /* From the name themselves the get_reviews get the reviews and the get_replies get the replies
+        along the way it's the same for make_review which makes the review a user posted as well as
+        make_reply which makes the reply a user posted. These have validations for security.
+    */
     public function get_reviews($id)
     {
         $safe_id = $this->security->xss_clean($id);
@@ -88,7 +91,9 @@ class Message extends CI_Model
             return 'success';
         }
     }
-
+    /* Calculate time is the function used for handling the date in the database for
+        displaying the correct date
+    */
     private function calculateTime($date)
     {
         $now = time();

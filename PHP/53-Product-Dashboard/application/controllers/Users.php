@@ -22,7 +22,9 @@ class Users extends CI_Controller
 			$this->load->view('users/login', $data);
 		}
 	}
-
+	/* This is the register process that handles user input and validation for registering
+		users to the database.
+	*/
 	public function register()
 	{
 		if ($this->session->flashdata('errors')) {
@@ -50,7 +52,9 @@ class Users extends CI_Controller
 		$this->session->set_userdata('user_id', $user_id);
 		redirect('Dashboard');
 	}
-
+	/* This is the login process that handles user input and validation for signing in
+		users to the site.
+	*/
 	public function loginProcess()
 	{
 		$access['validation'] = $this->User->validate_login();
@@ -88,7 +92,9 @@ class Users extends CI_Controller
 		$this->session->sess_destroy();
 		redirect('Users');
 	}
-
+	/* The functions below handle the editting of profile and password of the users
+		These also has validation integrated for error handling
+	*/
 	public function edit()
 	{
 		if ($this->session->flashdata('errors')) {

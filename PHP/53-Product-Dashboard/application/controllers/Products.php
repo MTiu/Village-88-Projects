@@ -9,7 +9,9 @@ class Products extends CI_Controller
         $this->load->model('Product');
         $this->load->model('Message');
     }
-
+    /* This loads the add product page with validations
+        after validation this will confirm either if there are errors or none    
+    */
     public function new()
     {
         $this->validate_user();
@@ -23,7 +25,9 @@ class Products extends CI_Controller
             $this->load->view('dashboard/Manage-Product', $data);
         }
     }
-
+        /* This loads the add product process with validations 
+            after validation this will confirm either if there are errors or none    
+        */
     public function addProcess()
     {
         $data = $this->Product->validate_manage();
@@ -36,7 +40,9 @@ class Products extends CI_Controller
             redirect('products/new');
         }
     }
-
+        /* This loads the edit product page with validations 
+            after validation this will confirm either if there are errors or none    
+        */
     public function edit($id)
     {
         $this->validate_user();
@@ -52,7 +58,9 @@ class Products extends CI_Controller
             $this->load->view('dashboard/Manage-Product', $data);
         }
     }
-
+        /* This loads the edit product process with validations 
+            after validation this will confirm either if there are errors or none    
+        */
     public function editProcess($id)
     {
         $data = $this->Product->validate_manage();
@@ -65,7 +73,9 @@ class Products extends CI_Controller
             redirect('products/edit/' . $id);
         }
     }
-
+    /* This shows the main product info page wherein it will also show the comments, reviews and 
+        information about the product that is not explicitly stated in the main product dashboard
+    */
     public function show($id)
     {
         $data['reviews'] = $this->Message->get_reviews($id);
@@ -83,7 +93,7 @@ class Products extends CI_Controller
             $this->load->view('dashboard/Product-Info', $data);
         }
     }
-
+    /* This contains the remove and remove process for removing the product in the main dashboard page */
     public function remove($id)
     {
         $this->validate_user();
@@ -97,7 +107,7 @@ class Products extends CI_Controller
         $this->Product->remove_product($id);
         redirect('dashboard');
     }
-
+    /* This contains the process for reviews and reply that is used in the main product info page */
     public function reviewProcess($product_id)
     {
         $data = $this->Message->validate_review();
@@ -124,7 +134,7 @@ class Products extends CI_Controller
             redirect('Products/show/' . $product_id);
         }
     }
-
+    /* Same in the dashboard which validates if the user is admin or not */
     private function validate_user()
     {
         if (!$this->session->userdata('admin')) {

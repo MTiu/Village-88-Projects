@@ -9,7 +9,10 @@ class Product extends CI_Model
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
     }
-
+    /* This function gets all the products to be displayed and can be used not only in the 
+        main dashboard but also in other pages like getting product data to be passed
+        in input. The singular specific version of this is the get_product which accepts a product_id
+    */
     public function get_all_products()
     {
         return $this->db->query("SELECT * FROM products ORDER BY product_id")->result_array();
@@ -20,6 +23,10 @@ class Product extends CI_Model
         $safe_id = $this->security->xss_clean($id);
         return $this->db->query("SELECT * FROM products WHERE product_id = ?", $safe_id)->row_array();
     }
+
+    /* add product and edit product are both used to manage the data values of the product
+        for adding and editting current data as well as remove product.
+    */
 
     public function add_product($post)
     {
@@ -53,6 +60,8 @@ class Product extends CI_Model
         $safe_id = $this->security->xss_clean($id);
         return $this->db->query("DELETE FROM products WHERE product_id = ?", $safe_id);
     }
+
+    /*This is the validation mention earlier that validates the input fields for editting and adding the products */
 
     public function validate_manage()
     {

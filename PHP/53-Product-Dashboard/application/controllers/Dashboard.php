@@ -9,7 +9,7 @@ class Dashboard extends CI_Controller
         parent::__construct();
         $this->load->model('Product');
     }
-
+    
     public function index()
     {
         $this->validate_user();
@@ -24,7 +24,7 @@ class Dashboard extends CI_Controller
             $this->load->view('dashboard/Product-Dashboard',$data);
         }
     }
-
+    /* This function validates if the user is an admin or not for session handling */
     private function validate_user()
     {
         if (!$this->session->userdata('user_id')) {

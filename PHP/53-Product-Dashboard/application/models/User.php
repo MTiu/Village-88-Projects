@@ -9,7 +9,7 @@ class User extends CI_Model
         $this->load->library('form_validation');
         $this->form_validation->set_error_delimiters('<span class="error">', '</span>');
     }
-
+    /* get user id and get user info are both used in handling user data for displaying it in the edit process */
     public function get_user_id($email)
     {
         $safe_email = $this->security->xss_clean($email);
@@ -21,6 +21,8 @@ class User extends CI_Model
         $safe_id = $this->security->xss_clean($id);
         return $this->db->query("SELECT email, first_name, last_name FROM users WHERE user_id = ?", $safe_id)->result_array();
     }
+
+    /* the below functions are used to edit user info and add user info such as registering */
 
     public function edit_user_info($id, $post)
     {
@@ -39,17 +41,7 @@ class User extends CI_Model
         $encrypted = md5($safe_password . $salt);
         $this->db->query("UPDATE users SET password = ?, salt = ?, updated_at = ? WHERE user_id = ?", array($encrypted,$salt, date('Y-m-d H:i:s'),$safe_id));
     }
-
-    public function validate_password($id, $password)
-    {
-        $safe_id = $this->security->xss_clean($id);
-        $safe_password = $this->security->xss_clean($password);
-
-        $salt = $this->db->query("SELECT salt FROM users WHERE user_id = ?", $safe_id)->row_array();
-        $salted = md5($safe_password . $salt['salt']);
-        return $this->db->query("SELECT password FROM users where password = ?", $salted)->row_array();
-    }
-
+    
     public function register($post)
     {
         $safe_fname = $this->security->xss_clean($post['fname']);
@@ -62,6 +54,20 @@ class User extends CI_Model
         VALUES (?,?,?,?,?,?,?)";
         $values = array($safe_fname, $safe_lname, $safe_email, $encrypted, $salt, date('Y-m-d H:i:s'), date('Y-m-d H:i:s'));
         return $this->db->query($query, $values);
+    }
+
+    /*Below are the validations used for registering, logging in, validating password for salt, validating other input field used in editting and changing
+    user password and data
+     */
+
+    public function validate_password($id, $password)
+    {
+        $safe_id = $this->security->xss_clean($id);
+        $safe_password = $this->security->xss_clean($password);
+
+        $salt = $this->db->query("SELECT salt FROM users WHERE user_id = ?", $safe_id)->row_array();
+        $salted = md5($safe_password . $salt['salt']);
+        return $this->db->query("SELECT password FROM users where password = ?", $salted)->row_array();
     }
 
     public function validate_register()
