@@ -13,25 +13,35 @@ class Ajax extends CI_Controller
 
 	public function index()
 	{
+		$this->load->view('order_taker');
+	}
+
+	public function index_html()
+	{
 		$data['orders'] = $this->Order->all_orders();
-		$this->load->view('order_taker', $data);
+		$this->load->view('partial/order-list', $data);
 	}
 
 	public function update($id)
 	{
 		$this->Order->update_order($id, $this->input->post('description'));
-		redirect('/');
+		$data['orders'] = $this->Order->all_orders();
+		$this->load->view('partial/order-list', $data);
 	}
 
 	public function remove($id)
 	{
 		$this->Order->delete_order($id);
-		redirect('/');
+		$data['orders'] = $this->Order->all_orders();
+		$this->load->view('partial/order-list', $data);
 	}
 
 	public function put_order()
 	{
+		if (strlen($this->input->post('description'))>0)
 		$this->Order->save_order($this->input->post('order'));
-		redirect('/');
+		
+		$data['orders'] = $this->Order->all_orders();
+		$this->load->view('partial/order-list', $data);
 	}
 }

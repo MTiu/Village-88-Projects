@@ -20,6 +20,7 @@ main{
     display: inline-block;
     margin: 2%;
     border: 1px solid white;
+    vertical-align: top;
 }
 
 .order form{
@@ -34,7 +35,7 @@ main{
 }
 
 .order textarea{
-    width: 98%;
+    width: 87%;
     font-size: 1.5rem;
     resize: none;
 }
@@ -54,4 +55,9 @@ footer input{
 footer input[type='text']{
     width: 87%;
     margin: 0 2%;
+}
+
+.description{
+    padding: 20px;
+    text-align: left;
 }
