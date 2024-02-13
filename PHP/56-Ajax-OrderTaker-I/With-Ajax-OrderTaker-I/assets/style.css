@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid red; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color: azure;
+    overflow-x: hidden;
+}
+
+main{
+    width: 95%;
+    height: 650px;
+    margin: 2%;
+    text-align: center;
+    overflow: auto;
+}
+
+h1{
+    text-align: center;
+    font-size: 4rem;
+}
+
+.error{
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
+.orders{
+    width: 25%;
+    height: 250px;
+    padding: 20px;
+    margin: 2% 1%;
+    border: 2px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.orders h1{
+    text-align: center;
+    padding: 20px;
+    font-size: 3rem;
+}
+
+.orders p{
+    text-align: center;
+    padding: 20px;
+    font-size: 2rem;
+}
+
+form{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: beige;
+    padding: 20px;
+}
+
+form input{
+    padding: 20px;
+    font-size: 2rem;
+}
+
+form input[type = 'text']{
+    width: 80%;
+    margin: 0 2%;
+}
+
