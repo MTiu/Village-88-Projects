@@ -16,6 +16,7 @@
 				});
 				return false;
 			});
+
 			$(document).on('change','form .description', function(){
 				$(this).parent().submit();
 			});

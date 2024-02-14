@@ -38,7 +38,7 @@ class Ajax extends CI_Controller
 
 	public function put_order()
 	{
-		if (strlen($this->input->post('description'))>0)
+		if (strlen($this->input->post('order')) > 0)
 		$this->Order->save_order($this->input->post('order'));
 		
 		$data['orders'] = $this->Order->all_orders();
