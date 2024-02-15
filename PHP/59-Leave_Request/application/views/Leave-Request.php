@@ -14,7 +14,6 @@
 				})
 				$.post('<?= base_url('Requests/count')?>',$(this).serialize(),function(data){
 					$('header h1').html(data);
-					console.log(data);
 				},'json')
 				return false;
 			})
