@@ -1,16 +1,24 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Search_Filter extends CI_Controller {
+class Search_Filter extends CI_Controller
+{
 
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Item');
 	}
 
 	public function index()
 	{
 		$this->load->view('search');
 	}
-}
 
+	public function search()
+	{
+		$data['validation'] = $this->Item->validate();
+		$data['data'] = $this->Item->filter($this->input->post(NULL, TRUE));
+		$this->load->view('partial/table-items', $data);
+	}
+}
