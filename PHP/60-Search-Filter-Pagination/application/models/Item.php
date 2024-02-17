@@ -22,7 +22,7 @@ class Item extends CI_Model
         $data = $this->db->query(
             "SELECT COUNT(id) as count FROM items
                             WHERE name LIKE ?
-                            AND quantity BETWEEN ? AND ?
+                            AND price BETWEEN ? AND ?
                             ORDER BY price " . $safe_post['order'],
             array('%' . $safe_name . '%', $safe_min, $safe_max)
         )->row_array();
@@ -42,7 +42,7 @@ class Item extends CI_Model
         $data = $this->db->query(
             "SELECT * FROM items
                             WHERE name LIKE ?
-                            AND quantity BETWEEN ? AND ?
+                            AND price BETWEEN ? AND ?
                             ORDER BY price " . $safe_post['order'].
                             " LIMIT 5 OFFSET ". $safe_page,
             array('%' . $safe_name . '%', $safe_min, $safe_max)

@@ -30,7 +30,7 @@ class Item extends CI_Model
         $data = $this->db->query(
             "SELECT * FROM items
                             WHERE name LIKE ?
-                            AND quantity BETWEEN ? AND ?
+                            AND price BETWEEN ? AND ?
                             ORDER BY price " . $safe_post['order'],
             array('%' . $safe_name . '%', $safe_min, $safe_max)
         )->result_array();
