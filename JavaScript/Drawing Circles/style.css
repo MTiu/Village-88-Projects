@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    /* outline: 1px solid red; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body{
+    overflow: hidden;
+    background-image: url(https://66.media.tumblr.com/30684ce9f0671f6f85e40736a4171fd6/tumblr_ouoqb2qeYC1vrn2jlo2_r1_1280.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: overlay;
+}
+
+header{
+    padding: 20px;
+    margin-bottom: 20px;
+    position:relative;
+    background-color: silver;
+}
+
+header h1{
+    display: inline-block;
+    vertical-align: center;
+    margin-right: 20px;
+}
+
+main{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+button{
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: purple;
+    color: white;
+}
+
+.reset{
+    position: relative;
+    left: 5%;
+}
+
+.circle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+
+.spe-circle{
+    background-image: url(https://th.bing.com/th/id/OIP.PBub9lLywnc44xeazCW_TAHaKl?rs=1&pid=ImgDetMain);
+}
+
+.suz-circle{
+    background-image: url(https://th.bing.com/th/id/OIP.Pc09CAPVbm6_0qw2XCYXoQHaKl?rs=1&pid=ImgDetMain);
+}
+
+.tei-circle{
+    background-image: url(https://th.bing.com/th/id/OIP.b6j10A79l4YBF9oI_d4T_QHaKm?rs=1&pid=ImgDetMain);
+}
+
+.active{
+    background-color: purple;
+    color: white;
+}
