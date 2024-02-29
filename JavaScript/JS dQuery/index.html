@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dQuery</title>
+        <script src="dquery.js"></script>
+    </head>
+    <body>
+        <h1>Heading 1</h1>
+        <p>Sample Paragraph 1</p>
+        <p>Sample Paragraph 2</p>
+        <button id="show_all">Show All</button>
+        <button id="hide_all">Hide All</button>
+        <script>
+            //clicking on h1 should hide all the h1
+            $query("h1").click(function () {
+                console.log("h1 is clicked");
+                $query("h1").hide();
+            });
+
+            //clicking on p should hide all the paragraphs
+            $query("p").click(function () {
+                console.log("p is clicked");
+                $query("p").hide();
+            });
+            //clicking on #show_all should show both h1 and p
+            $query("#show_all").click(function () {
+                console.log("#show_all is clicked");
+                $query("h1").show();
+                $query("p").show();
+            });
+            //clicking on #hide_all should hide both h1 and p
+            $query("#hide_all").click(function () {
+                console.log("#hide_all is clicked");
+                $query("h1").hide();
+                $query("p").hide();
+            });
+        </script>
+    </body>
+</html>
