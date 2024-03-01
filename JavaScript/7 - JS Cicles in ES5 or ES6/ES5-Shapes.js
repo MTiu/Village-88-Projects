@@ -1,4 +1,4 @@
-function shapes(){
+function Circles(){
     this.buttons = document.getElementsByClassName("selection");
 
     this.createShapes = function(mouseX, mouseY, size){
@@ -18,12 +18,12 @@ function shapes(){
     }
 
     this.initMain = function(){
-        var shapes = this;
+        var circles = this;
         document.getElementsByTagName("main")[0].addEventListener("click", function (event) {
             var mouseX = event.clientX - 80;
             var mouseY = event.clientY - 200;
             var size = Math.floor(Math.random() * 200) + 100;
-            shapes.createShapes(mouseX,mouseY,size);
+            circles.createShapes(mouseX,mouseY,size);
         });
     };
 
@@ -55,20 +55,20 @@ function shapes(){
     this.initButton = function(){
         for (var i = 0; i < this.buttons.length; i++){
             (function(index) {
-                var shapes = this;
-                shapes.buttons[index].addEventListener("click", function(){
+                var circles = this;
+                circles.buttons[index].addEventListener("click", function(){
                     var active_button = document.getElementsByClassName("active")[0];
                     if(active_button){
                         active_button.classList.remove("active");
                     }
-                    shapes.buttons[index].classList.add("active");
+                    circles.buttons[index].classList.add("active");
                 });
             }).call(this, i);
         }
     }
 }
 
-var circle = new shapes();
+var circle = new Circles();
 document.addEventListener("DOMContentLoaded", function () {
 
     circle.initMain();

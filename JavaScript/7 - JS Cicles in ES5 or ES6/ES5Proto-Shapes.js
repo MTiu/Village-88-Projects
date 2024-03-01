@@ -1,7 +1,7 @@
-function shapes(){
+function Circles(){
     this.buttons = document.getElementsByClassName("selection");
 
-    shapes.prototype.createShapes = function(mouseX, mouseY, size){
+    Circles.prototype.createShapes = function(mouseX, mouseY, size){
         var circle = document.createElement("div");
     
         var active_button = document.getElementsByClassName('active')[0];
@@ -17,17 +17,17 @@ function shapes(){
         document.getElementsByTagName("main")[0].appendChild(circle);
     }
 
-    shapes.prototype.initMain = function(){
-        var shapes = this;
+    Circles.prototype.initMain = function(){
+        var circles = this;
         document.getElementsByTagName("main")[0].addEventListener("click", function (event) {
             var mouseX = event.clientX - 80;
             var mouseY = event.clientY - 200;
             var size = Math.floor(Math.random() * 200) + 100;
-            shapes.createShapes(mouseX,mouseY,size);
+            circles.createShapes(mouseX,mouseY,size);
         });
     };
 
-    shapes.prototype.reset = function(){
+    Circles.prototype.reset = function(){
         document.getElementsByClassName("reset")[0].addEventListener("click", function(){
             document.getElementsByClassName("active")[0].classList.remove("active");
             var circles = document.getElementsByClassName("circle");
@@ -38,7 +38,7 @@ function shapes(){
         });
     };
 
-    shapes.prototype.shrink = function(){
+    Circles.prototype.shrink = function(){
         function shrinker(){
             var circles = document.getElementsByClassName("circle");
             for(var i = 0; i< circles.length; i++){
@@ -52,23 +52,23 @@ function shapes(){
         setInterval(shrinker,10);
     };
 
-    shapes.prototype.initButton = function(){
+    Circles.prototype.initButton = function(){
         for (var i = 0; i < this.buttons.length; i++){
             (function(index) {
-                var shapes = this;
-                shapes.buttons[index].addEventListener("click", function(){
+                var circles = this;
+                circles.buttons[index].addEventListener("click", function(){
                     var active_button = document.getElementsByClassName("active")[0];
                     if(active_button){
                         active_button.classList.remove("active");
                     }
-                    shapes.buttons[index].classList.add("active");
+                    circles.buttons[index].classList.add("active");
                 });
             }).call(this, i);
         }
     }
 }
 
-var circle = new shapes();
+var circle = new Circles();
 document.addEventListener("DOMContentLoaded", function () {
 
     circle.initMain();
