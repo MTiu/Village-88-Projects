@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css">
+        <title>JS Circle Demo</title>
+        <script src="circleES5.js"></script>
+    </head>
+    <body>
+        <div id="canvas"></div>
+        <script>
+            // initialize cLib (circleLibrary) with 100 circles
+            let cLib = new Circles(100);
+
+            // draw 100 circles on #canvas
+            cLib.draw_circles("canvas");
+            cLib.expand();
+        </script>
+    </body>
+</html>
