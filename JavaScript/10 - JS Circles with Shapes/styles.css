@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    /* outline: 1px solid red; */
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+    overflow: hidden;
+    background-image: url(img/bandori.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: overlay;
+}
+
+header {
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    background-color: silver;
+}
+
+header h1 {
+    display: inline-block;
+    vertical-align: center;
+    margin-right: 20px;
+}
+
+img {
+    object-fit: cover;
+    object-position: center;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+select,
+button {
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+select:hover,
+button:hover {
+    background-color: purple;
+    color: white;
+}
+
+option {
+    background-color: white;
+    color: black;
+}
+
+#bands {
+    margin-right: 5%;
+}
+
+.selection {
+    padding: 20px;
+    vertical-align: top;
+}
+
+.circle {
+    margin-right: 10px;
+}
+
+.triangle {
+    margin-right: 5%;
+}
+
+.reset {
+    position: relative;
+    left: 5%;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.star {
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
+
+.triangle {
+    clip-path: polygon(100% 50%, 0 0, 0 100%);
+}
+
+.active {
+    background-color: purple;
+}
