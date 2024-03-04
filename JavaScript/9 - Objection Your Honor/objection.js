@@ -4,7 +4,7 @@ class Person {
         this.age = age;
     }
 }
-
+// I didn't remove constructor for readability purposes and for following the UML Thank you!
 class Prosecutor extends Person {
     constructor(name, age) {
         super(name, age);
