@@ -1,8 +1,8 @@
 class Bands {
-    bandMemberImages = [];
-    backgroundImage = "";
-    bandSong = "";
-    songDisplay = "";
+    // bandMemberImages = [];
+    // backgroundImage = "";
+    // bandSong = "";
+    // songDisplay = "";
     constructor(shape) {
         this.shape = shape;
     }
