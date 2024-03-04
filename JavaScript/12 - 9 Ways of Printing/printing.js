@@ -51,7 +51,7 @@ function logJava2(){
     }
 }
 
-let java2 = new logJava2();
+var java2 = new logJava2();
 java2.print2();
 
 //9th with the regular function
