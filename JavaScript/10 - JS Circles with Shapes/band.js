@@ -181,25 +181,38 @@ function shrink() {
 }
 
 function update(active_band, shape){
-    if (active_band == "popipa") {
-        return new Popipa(shape);
-    } else if(active_band == "roselia") {
-        return new Roselia(shape);
-    } else if(active_band == "ras") {
-        return new RAS(shape);
-    } else if(active_band == "morfonica") {
-        return new Morfonica(shape);
-    } else if(active_band == "afterglow") {
-        return new Afterglow(shape);
-    } else if(active_band == "hello-happy") {
-        return new HelloHappy(shape);
-    } else if(active_band == "paspare") {
-        return new Pastel(shape);
-    } else if(active_band == "mygo") {
-        return new Mygo(shape);
-    } else if(active_band == "ave") {
-        return new Ave(shape);
+
+    let obj1 = {
+        popipa: new Popipa(shape),
+        roselia: new Roselia(shape),
+        ras: new RAS(shape),
+        morfonica: new Morfonica(shape),
+        afterglow:  new Afterglow(shape),
+        hello_happy: new HelloHappy(shape),
+        paspare: new Pastel(shape),
+        mygo: new Mygo(shape),
+        ave: new Ave(shape)
     }
+    return obj1[active_band];
+    // if (active_band == "popipa") {
+    //     return new Popipa(shape);
+    // } else if(active_band == "roselia") {
+    //     return new Roselia(shape);
+    // } else if(active_band == "ras") {
+    //     return new RAS(shape);
+    // } else if(active_band == "morfonica") {
+    //     return new Morfonica(shape);
+    // } else if(active_band == "afterglow") {
+    //     return new Afterglow(shape);
+    // } else if(active_band == "hello-happy") {
+    //     return new HelloHappy(shape);
+    // } else if(active_band == "paspare") {
+    //     return new Pastel(shape);
+    // } else if(active_band == "mygo") {
+    //     return new Mygo(shape);
+    // } else if(active_band == "ave") {
+    //     return new Ave(shape);
+    // }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
