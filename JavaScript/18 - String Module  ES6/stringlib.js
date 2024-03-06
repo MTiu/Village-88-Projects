@@ -1,5 +1,5 @@
-module.exports = () => {
-    return class StringLib {
+module.exports = 
+    class StringLib {
         concat(word1, word2) {
             return "" + word1 + word2;
         }
@@ -17,4 +17,3 @@ module.exports = () => {
             return word[index];
         }
     };
-};

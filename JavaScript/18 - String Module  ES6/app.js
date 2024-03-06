@@ -1,7 +1,6 @@
-const string_module = require("./stringlib")();
-const my_class = new string_module();
+const string_module = new (require("./stringlib"));
 
-console.log(my_class.concat("Village", "88"));
-console.log(my_class.repeat("ha", 3));
-console.log(my_class.toString(5));
-console.log(my_class.charAt("nice", 2));
+console.log(string_module.concat("Village", "88"));
+console.log(string_module.repeat("ha", 3));
+console.log(string_module.toString(5));
+console.log(string_module.charAt("nice", 2));
