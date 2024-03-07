@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/awards.css">
+    <title>Theaters</title>
+</head>
+<body>
+    <h1>Achievements Unlocked!!!!</h1>
+    <% for(let i = 0; i<awards.length; i++ ){ %>
+    <a href="<%= awards[i].url %>"><img src='<%= awards[i].img %>' alt= 'Image of <%= awards[i].name %>' ></a>
+    <% } %>
+</body>
+</html>
