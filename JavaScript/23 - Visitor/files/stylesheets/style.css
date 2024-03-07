@@ -1,0 +1,15 @@
+body{
+    margin-top: 50px;
+}
+
+h1, h2, body{
+    text-align: center;
+}
+
+a{
+    padding: 20px;
+    display: inline-block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
