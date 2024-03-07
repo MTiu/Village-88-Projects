@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+body{
+    text-align: center;
+}
+
+h1, form {
+    padding: 20px;
+    background-color: black;
+    color: white;
+}
+
+form{
+    display: inline-block;
+    width: 30%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+form label{
+    display: block;
+    margin: 5% 0;
+}
+
+textarea{
+    width: 95%;
+    height: 100px;
+    resize: none;
+    vertical-align: top;
+}
+
+input[type = 'text']{
+    width: 95%;
+    padding: 5px 20px;
+}
+
+button{
+    cursor: pointer;
+    padding: 10px 20px;
+}
