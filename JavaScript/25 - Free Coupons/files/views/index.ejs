@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+        <title>Free Coupon</title>
+    </head>
+
+    <body>
+        <main>
+            <h1>Welcome <%= (data && data.name) ? data.name : 'Customer' %></h1>
+            <p>We're giving away <span class="emphasize">free coupons</span></p>
+            <p>as token of appreciation</p>
+            <%_ if(!(data && data.num == 0)) { _%>
+            <p>for the first <%= (data && data.num)? data.num : '10' %> customer(s)</p>
+            <%_ } _%>
+            <%_ if(!data) { _%>
+            <form class="coupon-get" action="/process" method="POST">
+                <p>Kindly Type your name</p>
+                <input type="text" name="name" />
+                <input class="submit-button" type="submit" value="Submit" name="submit"/>
+            </form>
+            <%_ } else{ _%>
+            <form class="coupon-got" action="/process" method="POST">
+                <%_ if(data && data.num == 0){ _%>
+                <p class="discount">Sorry</p>
+                <p class="coupon">Unavailable</p>
+                <input class="reset-button-last" type="submit" value="Reset Count" name="reset"/>
+                <%_ } else { _%>
+                <p class="discount"><%= data.discount %>% Discount</p>
+                <p class="coupon"><%= data.coupon%></p>
+                <input class="reset-button" type="submit" value="Reset Count" name="reset"/>
+                <input class="submit-button" type="submit" value="Claim Again" name="claim"/>
+                <%_ } _%>
+            </form>
+            <%_ } _%>
+        </main>
+    </body>
+</html>
