@@ -1,0 +1,53 @@
+*,
+*:before,
+*:after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body {
+    font-family: Verdana;
+}
+.error {
+    color: white;
+    width: 100%;
+    text-align: center;
+    background-color: red;
+    margin: 0 auto;
+}
+form {
+    width: 400px;
+    margin: 30px auto;
+    background-color:rgba(255, 255, 254, 0.7);
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+    form *:not(h1) {
+        display:inline-block;
+        vertical-align: top;
+        width: 160px;
+        margin-top: 10px;
+    }
+        form h1 {
+            text-align: center;
+            margin: 5px 0 25px 0;
+            font-family: Tahoma;
+        }
+        form label, p {
+            text-align: right;
+            margin-left: 5px;
+        }
+        form input[type="submit"] {
+            display: block;
+            margin: 25px auto;
+            padding: 4px 0px;
+            border-radius: 10px;
+        }
+        form a {
+            display: block;
+            width:100%;
+            font-size: 12px;
+            text-align: right;
+        }
