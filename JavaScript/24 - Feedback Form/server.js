@@ -32,7 +32,7 @@ app.post('/process',(req,res)=>{
     if(data.name){
         req.session.error = "";
         req.session.data = data;
-        res.redirect('result');
+        res.redirect('/result');
     } else {
         req.session.error = "Name isn't optional! IT'S ALL A LIE!";
         res.redirect('/');
