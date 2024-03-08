@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" >
+    <title>Success!</title>
+</head>
+<body>
+    <img class="submitted-img" src="/images/rem submitted.png" alt="Picture of Rem">
+    <main class="submitted-feedback">
+    <h1>Submitted Entry</h1>
+    <h2>Your Name (optional): <span><%= data.name %></span></h2>
+    <h2>Course Title: <span><%= data.course %></span></h2>
+    <h2>Given Score(1-10): <span><%= data.score %></span></h2>
+    <h2>Reason:</h2> 
+    <p><%= data.reason %></p>
+    <a href="/">Return</a>
+    </main>
+</body>
+</html>
