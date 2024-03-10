@@ -32,14 +32,16 @@ io.on("connection", function (socket) {
         console.log(data.msg); 
     });
 
-    socket.on("submit", function (data) {
+    socket.on("posting_form", function (data) {
         let name = (data.msg[0].value)? data.msg[0].value: "You put no name";
         let course = (data.msg[1].value)? data.msg[1].value: "You're a malicious hacker";
         let score = (data.msg[2].value)? data.msg[2].value: "You're a malicious hacker";
         let reason = (data.msg[3].value)? data.msg[3].value: "You put no reason";
         let random = Math.floor((Math.random()*1000));
-        socket.emit("processed_submit",{
+        socket.emit("updated_message",{
             msg: `Goshujin-sama(You) emitted the following values to the server:{name: ${name}, course_title: ${course}, score: ${score}, reason: ${reason}}`,
+        })
+        socket.emit("id_number", {
             random: `Random generated id number is ${random}.`
         })
     });
