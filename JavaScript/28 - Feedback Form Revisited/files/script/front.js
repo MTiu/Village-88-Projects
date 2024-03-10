@@ -1,12 +1,11 @@
 $(document).ready(function () {
-    const socket = io(); //1
+    const socket = io();
 
     socket.on("greeting", function (data) {
-        //4
-        console.log(data.msg); //5
+        console.log(data.msg); 
         socket.emit("thankyou", {
             msg: "Thank you for connecting me! -Client",
-        }); //6
+        }); 
     });
     socket.on("processed_submit", function (data) {
         $(".submit-img").remove();

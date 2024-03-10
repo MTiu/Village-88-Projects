@@ -39,7 +39,7 @@ io.on("connection", function (socket) {
         let reason = (data.msg[3].value)? data.msg[3].value: "You put no reason";
         let random = Math.floor((Math.random()*1000));
         socket.emit("processed_submit",{
-            msg: `You emitted the following values to the server:{name: ${name}, course_title: ${course}, score: ${score}, reason: ${reason}}`,
+            msg: `Goshujin-sama(You) emitted the following values to the server:{name: ${name}, course_title: ${course}, score: ${score}, reason: ${reason}}`,
             random: `Random generated id number is ${random}.`
         })
     });

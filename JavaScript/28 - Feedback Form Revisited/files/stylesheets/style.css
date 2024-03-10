@@ -1,5 +1,5 @@
 * {
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
@@ -144,7 +144,7 @@ section {
 .socket {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 200px;
 }
 
 .socket p{
