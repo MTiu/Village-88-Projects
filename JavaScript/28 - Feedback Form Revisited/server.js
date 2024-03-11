@@ -4,7 +4,7 @@ const server = app.listen(7777);
 const io = require("socket.io")(server);
 
 app.use(express.static(__dirname + "/files"));
-app.use(express.static(__dirname + "/node_modules/socket.io/client-dist"));
+// app.use(express.static(__dirname + "/node_modules/socket.io/client-dist"));
 
 app.set("views", __dirname + "/files/views");
 app.set("view engine", "ejs");
