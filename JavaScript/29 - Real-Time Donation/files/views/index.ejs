@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="stylesheets/style.css" />
+        <title>Real Time Donation</title>
+        <script src="script/jquery-3.7.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script/front.js"></script>
+    </head>
+    <body>
+        <h1 class="header">
+            Total Cash Donation:<span class="donation">Color</span>
+        </h1>
+        <main>
+            <p><span>Goshujin-sama</span> please donate</p>
+            <p><span>Goshujin-sama</span> please take if needed</p>
+            <section class="buttons">
+                <button id="donate-button">Donate $10</button>
+                <button id="redeem-button">Redeem $10</button>
+            </section>
+            <img src="images/money.gif" alt="GIF of K-ON" />
+        </main>
+        <div class="history">
+            <h1>History</h1>
+            <p>Welcome!</p>
+        </div>
+    </body>
+</html>
