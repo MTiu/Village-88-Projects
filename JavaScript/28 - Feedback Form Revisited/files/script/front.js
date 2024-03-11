@@ -16,8 +16,9 @@ $(document).ready(function () {
                 " <img class='submitted-img' src='images/rem submitted.png' alt='Picture of Rem'/>"
             );
         }
-        $(".socket").append("<section class='socket-msg'></section>");
-        $(".socket-msg").append(`<p>${data.msg}</p>`);
+        $(".socket").append(
+            `<section class='socket-msg'> <p>${data.msg}</p> </section>`
+        );
     });
     socket.on("id_number", function (data) {
         $(".socket-msg").append(`<p>${data.random}</p>`);

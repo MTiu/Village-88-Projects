@@ -1,22 +1,11 @@
 const express = require("express");
-// const session = require("express-session");
-const bodyParser = require("body-parser");
 const app = express();
 const server = app.listen(7777);
 const io = require("socket.io")(server);
 
-// app.use(
-//     session({
-//         secret: "mySikretCookie",
-//         resave: false,
-//         saveUninitialized: true,
-//         cookie: { maxAge: 600000 },
-//     })
-// );
-
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/files"));
 app.use(express.static(__dirname + "/node_modules/socket.io/client-dist"));
+
 app.set("views", __dirname + "/files/views");
 app.set("view engine", "ejs");
 
