@@ -1,0 +1,132 @@
+* {
+    /* outline: 1px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    background-color: rgb(238, 238, 238);
+}
+
+header h1{
+    padding: 20px;
+    background-color: rgb(34, 40, 49);
+    color: white;
+}
+
+header #guess{
+    font-size: 3rem;
+    color: rgb(34, 40, 49);
+    background-color: transparent;
+}
+
+main, aside{
+    display: inline-block;
+    margin: 0 2%;
+    height: 70vh;
+}   
+
+aside{
+    width: 20%;
+    vertical-align: top;
+    overflow-y: scroll;
+    border: 1px solid rgb(34, 40, 49);
+}
+
+aside h1{
+    margin-top: 0;
+    padding: 20px;
+    background-color: rgb(34, 40, 49);
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+aside p{
+    padding: 15px;
+    border-bottom: 1px solid rgb(34, 40, 49);
+}
+
+main{
+    width: 70%;
+}
+
+main .chats{
+    width: 100%;
+    height: 50vh;
+    padding: 20px 50px;
+    border: 1px solid rgb(34, 40, 49);
+    text-align: left;
+    overflow-y: scroll;
+}
+
+main .chats p{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    line-height: 3;
+}
+
+main .chats p .emphasize{
+    font-weight: 1000;
+}
+
+main .chats p .message{
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgb(34, 40, 49);
+    color: white;
+}
+
+main section input{
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+
+main section {
+    position: relative;
+}
+
+input{
+    border: 1px solid rgb(34, 40, 49);
+    background-color: transparent;
+}
+
+button{
+    padding: 20px;
+    font-size: 1.3rem;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    color: white;
+    background-color: rgb(34, 40, 49);
+    border: none;
+}
+
+button:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.success,.joined,.disconnected{
+    text-align: center;
+}
+
+.success{
+    font-weight: 1000;
+    color: green;
+}
+
+.joined{
+    color: rgb(0, 173, 181);
+}
+
+.disconnected{
+    color: red;
+}
+
+

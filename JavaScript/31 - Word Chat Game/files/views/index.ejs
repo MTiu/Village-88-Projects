@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="stylesheets/style.css" />
+        <title>Word Game</title>
+        <script src="script/jquery-3.7.1.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script/front.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Guess the Anime</h1>
+            <h1 id="guess"></h1>
+        </header>
+        <aside></aside>
+        <main>
+            <section class="chats"></section>
+            <section>
+                <input type="text" class="input-guess" placeholder="Guess the anime">
+                <button class="submit">Submit</button>
+            </section>
+        </main>
+    </body>
+</html>
