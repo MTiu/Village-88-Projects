@@ -67,6 +67,7 @@ main .chats p{
     font-size: 1.5rem;
     margin-bottom: 20px;
     line-height: 3;
+    overflow-wrap:break-word
 }
 
 main .chats p .emphasize{

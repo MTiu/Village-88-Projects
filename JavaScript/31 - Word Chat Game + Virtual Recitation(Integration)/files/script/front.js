@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let name = prompt("Enter your name");
-    while( name == ''){
+    while( name == '' || name == null){
         name = prompt("Don't put empty space or blank a name");
     }
     
