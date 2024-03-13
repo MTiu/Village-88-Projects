@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="stylesheets/style.css" />
+        <title>1942 Witch/魔女</title>
+        <link rel="icon" href="images/favicon.png" type="image/png">
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/script/jquery-3.7.1.js"></script>
+        <script src="/script/BGM.js"></script>
+        <script src="/script/Player.js"></script>
+        <script src="/script/Projectile.js"></script>
+        <script src="/script/Enemy.js"></script>
+        <script src="/script/Front.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>1942 Witch/<span class="japanese-text">魔女</span></h1>
+        </header>
+        <aside>
+            <h1>Players</h1>
+            <ul id="player-list"></ul>
+            <h1>Spectators</h1>
+            <ul id="spectator-list"></ul>
+        </aside>
+        <main>
+            <div class="player">
+                <p>Player 1</p>
+                <img src="images/witch.gif" alt="image of player" />
+            </div>
+            <img src="images/fireball.gif" alt="" />
+            <img src="images/fireball.gif" alt="" />
+            <img src="images/enemy1.gif" alt="" />
+            <img src="images/enemy2.gif" alt="" />
+            <img src="images/enemy3.gif" alt="" />
+        </main>
+        <footer>
+            <div class="character">
+                <h1>Eleanor</h1>
+                <img
+                    src="images/witch.png"
+                    alt="Portait of witch"
+                    class="portrait"
+                />
+            </div>
+            <div class="status">
+                <h2>HP: 5</h2>
+                <h2>Score:</h2>
+                <div class="special">
+                    <img src="images/fireball.gif" alt="" />
+                    <h1>x2</h1>
+                </div>
+                <button id="join-button">JOIN</button>
+                <button id="audio-button">AUDIO</button>
+            </div>
+        </footer>
+    </body>
+</html>

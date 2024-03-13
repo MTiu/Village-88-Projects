@@ -1,0 +1,110 @@
+* {
+    /* outline: 1px solid red; */
+    margin: 0;
+    padding: 0;
+    font-family: "Press Start 2P", system-ui;
+}
+
+.japanese-text{
+    font-size: 2.5rem;
+    color: #dda0dd;
+}
+
+header{
+    text-align: center;
+    margin: 20px 0;
+}
+
+header h1{
+    padding: 20px;
+}
+
+body{
+    background-color: black;
+    color: white;
+}
+
+main,aside{
+    display: inline-block;
+    vertical-align: top;
+}
+
+aside{
+    border: 1px solid white;
+    width: 15%;
+    height: 65vh;
+    margin:0 2%;
+}
+
+aside h1{
+    padding: 20px;
+    border-bottom: 1px solid white;
+    background-color: white;
+    color: black;
+}
+
+aside ul{
+    list-style: none;
+    word-wrap: break-word;
+    height: 39%;
+    overflow-y: auto;
+}
+
+aside ul li{
+    padding: 20px;
+    line-height: 2;
+    border-bottom: 1px solid white;
+}
+
+main {
+    background-image: url(/images/background\ large.gif);
+    background-size: contain;
+    width: 1200px;
+    height: 600px;
+}
+
+footer{
+    width: 10%;
+    margin: 0 1%;
+    display: inline-block;
+    line-height: 1.5;
+}
+
+footer h2{
+    word-wrap: break-word;
+}
+
+.portrait{
+    width: 200px;
+}
+
+.status .special h1{
+    display: inline-block;
+}
+
+.player{
+    display: inline-block;
+    position: absolute;
+}
+
+.player p{
+    font-size: 0.8rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+#join-button,#audio-button{
+    margin-top: 20px;
+    padding: 15px;
+    background-color: transparent;
+    border: 5px solid white;
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+}
+
+#join-button:hover, #audio-button:hover{
+    background-color: white;
+    color: black;
+}
