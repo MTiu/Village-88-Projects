@@ -1,22 +1,165 @@
 $(document).ready(function () {
     let name = prompt("Please Enter your Name");
-    while(name == null || name.trim() == ''){
-        let name = prompt("Name can't be blank");
+    while (name == null || name.trim() == "") {
+        name = prompt("Name can't be blank");
     }
     const socket = io();
 
-    socket.on("connect",function(){
-        socket.emit("update_spectators",{
-            name:name
+    // Location Defaults
+    const maxLeft = Math.floor($("main").offset().left);
+    const maxTop = $("main").offset().top;
+    const maxRight = Math.floor($("main").offset().left + $("main").outerWidth() - 105);
+    const maxBottom = $("main").offset().top + $("main").outerHeight() - 115;
+    const randomSpawnLoc = Math.floor(Math.random() * 480) + 150;
+
+    //Projectile Defaults
+    let lastFired = 0;
+    const fireCD = 200;
+
+    const AGI = 6;
+    const players = {};
+    const projectiles = {};
+    const enemies = {};
+
+    setInterval(() => {
+        if (keys.w.pressed) {
+            if (players[socket.id].y > maxTop) {
+                players[socket.id].y -= AGI;
+                socket.emit("key_pressed", "KeyW");
+                $(`#${players[socket.id].id}`).css(
+                    "top",
+                    `${players[socket.id].y}px`
+                );
+            }
+        }
+        if (keys.a.pressed) {
+            if (players[socket.id].x > maxLeft) {
+                players[socket.id].x -= AGI;
+                socket.emit("key_pressed", "KeyA");
+                $(`#${players[socket.id].id}`).css(
+                    "left",
+                    `${players[socket.id].x}px`
+                );
+            }
+        }
+        if (keys.s.pressed) {
+            if (players[socket.id].y < maxBottom) {
+                players[socket.id].y += AGI;
+                socket.emit("key_pressed", "KeyS");
+                $(`#${players[socket.id].id}`).css(
+                    "top",
+                    `${players[socket.id].y}px`
+                );
+            }
+        }
+        if (keys.d.pressed) {
+            if (players[socket.id].x < maxRight) {
+                players[socket.id].x += AGI;
+                socket.emit("key_pressed", "KeyD");
+                $(`#${players[socket.id].id}`).css(
+                    "left",
+                    `${players[socket.id].x}px`
+                );
+            }
+        }
+        if (keys.Space.pressed) {
+            const currentTime = Date.now();
+            if (currentTime - lastFired >= fireCD) {
+                socket.emit("fireball", {
+                    x: players[socket.id].x,
+                    y: players[socket.id].y,
+                });
+                lastFired = currentTime;
+            }
+            //     if(fireballSFX.paused){
+            //         fireballSFX.play();
+            //     }
+        }
+    }, 15);
+
+    socket.on("connect", function () {
+        socket.emit("new_user", {
+            name: name,
         });
+        socket.emit("init_screen", {
+            maxLeft: maxLeft,
+            maxRight: maxRight,
+        });
+    });
+
+    socket.on("enemy_display",function(data){
+        for(const id in data){
+            if(!enemies[id]){
+                enemies[id] = new Ghost(
+                    data[id].x,
+                    data[id].y,
+                    data[id].AGI
+                );
+            } else {
+                enemies[id].img.css("left", data[id].x + "px");
+                console.log(enemies[id].img.width());
+            }
+        }
+        for(const id in enemies){
+            if (!data[id]){
+                enemies[id].img.remove();
+                delete enemies[id];
+            }
+        }
     })
 
-    socket.on("update_players",function(data){
-        $('#player-list').html(data.players);
-    })
-    socket.on("update_spectators_display",function(data){
+    socket.on("fireball_display", function (data) {
+        for (const id in data) {
+            if (!projectiles[id]) {
+                projectiles[id] = new Fireball(
+                    data[id].x,
+                    data[id].y,
+                    data[id].playerID,
+                    data[id].velocity
+                );
+            } else {
+                projectiles[id].img.css("left", data[id].x + "px");
+            }
+        }
+
+        for(const id in projectiles){
+            if (!data[id]){
+                projectiles[id].img.remove();
+                delete projectiles[id];
+            }
+        }
+    });
+
+    socket.on("update_players", function (data) {
+        $("#player-list").html("");
+        for (const id in data) {
+            $("#player-list").append(
+                `<li><p>Name: ${data[id].name}</p> <p>Score: ${data[id].score}</p></li>`
+            );
+            if (!players[id]) {
+                players[id] = new Player(
+                    id,
+                    data[id].x,
+                    data[id].y,
+                    data[id].name
+                );
+                players[id].createPlayer();
+            } else {
+                players[id].x = data[id].x;
+                players[id].y = data[id].y;
+                players[id].move();
+            }
+        }
+        for (const id in players) {
+            if (!data[id]) {
+                players[id].removePlayer();
+                delete players[id];
+            }
+        }
+    });
+    socket.on("update_spectators_display", function (data) {
         $("#spectator-list").html(data.spectators);
-    })
+    });
     const keys = {
         w: { pressed: false },
         a: { pressed: false },
@@ -24,48 +167,9 @@ $(document).ready(function () {
         d: { pressed: false },
         Space: { pressed: false },
     };
-    const maxLeft        = Math.floor($("main").offset().left);
-    const maxTop         = $("main").offset().top;
-    const maxRight       = $("main").offset().left + $("main").outerWidth()-105;
-    const maxBottom      = $("main").offset().top + $("main").outerHeight()-115;
-    const randomSpawnLoc = Math.floor(Math.random()*480)+150;
-    
-    const AGI            = 6;
-    const player1        = new Player(maxLeft,randomSpawnLoc);
-
-    player1.createPlayer();
-
-    setInterval(() => {
-        if (keys.w.pressed) {
-            if (player1.y > maxTop) {
-                player1.y -= AGI;
-                $("#lol").css("top", `${player1.y}px`);
-            }
-        }
-        if (keys.a.pressed) {
-            if (player1.x > maxLeft) {
-                player1.x -= AGI;
-                $("#lol").css("left", `${player1.x}px`);
-            }
-        }
-        if (keys.s.pressed) {
-            if(player1.y < maxBottom){
-                player1.y += AGI;
-                $("#lol").css("top", `${player1.y}px`);
-            }
-        }
-        if (keys.d.pressed) {
-            if(player1.x < maxRight){
-                player1.x += AGI;
-                $("#lol").css("left", `${player1.x}px`);
-            }
-        }
-        if (keys.Space.pressed){
-            // $("main").append("<img src='images/fireball.gif' alt='fireball' />");
-        }
-    }, 15);
 
     $(document).on("keydown", (event) => {
+        if (!players[socket.id]) return;
         if (event.code === "KeyW") {
             keys.w.pressed = true;
         } else if (event.code === "KeyA") {
@@ -74,12 +178,13 @@ $(document).ready(function () {
             keys.s.pressed = true;
         } else if (event.code === "KeyD") {
             keys.d.pressed = true;
-        } else if (event.code === "Space"){
+        } else if (event.code === "Space") {
             keys.Space.pressed = true;
         }
     });
 
     $(document).on("keyup", (event) => {
+        if (!players[socket.id]) return;
         if (event.code === "KeyW") {
             keys.w.pressed = false;
         } else if (event.code === "KeyA") {
@@ -88,22 +193,35 @@ $(document).ready(function () {
             keys.s.pressed = false;
         } else if (event.code === "KeyD") {
             keys.d.pressed = false;
-        } else if (event.code === "Space"){
+        } else if (event.code === "Space") {
             keys.Space.pressed = false;
         }
     });
 
-    $(document).on("click","#audio-button", ()=>{
-        if($("#audio-button").css("background-color") == "rgb(255, 255, 255)"){
-            $("#audio-button").css("background-color","black").css("color","white");
+    $(document).on("click", "#audio-button", () => {
+        if (!music.paused) {
+            $("#audio-button")
+                .css("background-color", "black")
+                .css("color", "white");
             music.pause();
         } else {
-            $("#audio-button").css("background-color","white").css("color","black");
+            $("#audio-button")
+                .css("background-color", "white")
+                .css("color", "black");
             music.play();
         }
-    })
+    });
 
-    $(document).on("click", "#join-button", ()=>{
-            socket.emit("join")
-    })
+    $(document).on("click", "#join-button", () => {
+        if (!players[socket.id]) {
+            socket.emit("join", {
+                characters: new Player(
+                    socket.id,
+                    maxLeft,
+                    randomSpawnLoc,
+                    name
+                ),
+            });
+        }
+    });
 });

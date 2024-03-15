@@ -1,8 +1,8 @@
 class Player {
     constructor(
+        id,
         x = 100,
         y = 100,
-        id = "lol",
         name = "player",
         hp = 3,
         specialProj = 3
@@ -13,6 +13,7 @@ class Player {
         this.x = x;
         this.y = y;
         this.specialProj = specialProj;
+        this.score = 0;
     }
     createPlayer() {
         const playerDiv = $("<div>")
@@ -34,5 +35,8 @@ class Player {
     }
     removePlayer() {
         $(`#${this.id}`).remove();
+    }
+    move() {
+        $(`#${this.id}`).css("left", this.x).css("top", this.y);
     }
 }
