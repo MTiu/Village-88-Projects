@@ -7,7 +7,7 @@ class Enemy {
 }
 
 class Ghost extends Enemy{
-    constructor(x,y,AGI=5,hp=1,img='/images/enemy1.gif'){
+    constructor(x,y,AGI=5,hp=1,img){
         super(x,y,AGI)
         this.hp = hp
         this.img = $("<img>")

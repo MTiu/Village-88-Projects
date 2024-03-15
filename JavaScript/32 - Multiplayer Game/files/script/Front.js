@@ -8,7 +8,9 @@ $(document).ready(function () {
     // Location Defaults
     const maxLeft = Math.floor($("main").offset().left);
     const maxTop = $("main").offset().top;
-    const maxRight = Math.floor($("main").offset().left + $("main").outerWidth() - 105);
+    const maxRight = Math.floor(
+        $("main").offset().left + $("main").outerWidth() - 105
+    );
     const maxBottom = $("main").offset().top + $("main").outerHeight() - 115;
     const randomSpawnLoc = Math.floor(Math.random() * 480) + 150;
 
@@ -71,9 +73,9 @@ $(document).ready(function () {
                 });
                 lastFired = currentTime;
             }
-            //     if(fireballSFX.paused){
-            //         fireballSFX.play();
-            //     }
+            if (fireballSFX.paused) {
+                fireballSFX.play();
+            }
         }
     }, 15);
 
@@ -87,26 +89,29 @@ $(document).ready(function () {
         });
     });
 
-    socket.on("enemy_display",function(data){
-        for(const id in data){
-            if(!enemies[id]){
-                enemies[id] = new Ghost(
-                    data[id].x,
-                    data[id].y,
-                    data[id].AGI
-                );
+    socket.on('score_update', function(data){
+        $("#player-score").html("Score: "+data);
+    })
+
+    socket.on("enemy_display", function (data) {
+        for (const id in data) {
+            if (!enemies[id]) {
+                enemies[id] = new Ghost(data[id].x, data[id].y, data[id].AGI,data[id].hp, data[id].img);
             } else {
                 enemies[id].img.css("left", data[id].x + "px");
-                console.log(enemies[id].img.width());
             }
         }
-        for(const id in enemies){
-            if (!data[id]){
+        for (const id in enemies) {
+            if (!data[id]) {
                 enemies[id].img.remove();
                 delete enemies[id];
             }
         }
-    })
+    });
+
+    socket.on("enemy_death_sfx", function () {
+        enemy_deathSFX.play();
+    });
 
     socket.on("fireball_display", function (data) {
         for (const id in data) {
@@ -115,15 +120,15 @@ $(document).ready(function () {
                     data[id].x,
                     data[id].y,
                     data[id].playerID,
-                    data[id].velocity
+                    data[id].img
                 );
             } else {
                 projectiles[id].img.css("left", data[id].x + "px");
             }
         }
 
-        for(const id in projectiles){
-            if (!data[id]){
+        for (const id in projectiles) {
+            if (!data[id]) {
                 projectiles[id].img.remove();
                 delete projectiles[id];
             }
@@ -133,9 +138,8 @@ $(document).ready(function () {
     socket.on("update_players", function (data) {
         $("#player-list").html("");
         for (const id in data) {
-            $("#player-list").append(
-                `<li><p>Name: ${data[id].name}</p> <p>Score: ${data[id].score}</p></li>`
-            );
+            $("#player-list").append(`<li><p>Name: ${data[id].name}</p></li>`);
+            $("#special-count").html("x"+data[id].specialProj);
             if (!players[id]) {
                 players[id] = new Player(
                     id,
@@ -157,6 +161,7 @@ $(document).ready(function () {
             }
         }
     });
+
     socket.on("update_spectators_display", function (data) {
         $("#spectator-list").html(data.spectators);
     });
@@ -167,6 +172,14 @@ $(document).ready(function () {
         d: { pressed: false },
         Space: { pressed: false },
     };
+
+    socket.on("hp_deducted", function (data) {
+        $("#player-hp").html("HP: " + data);
+    });
+
+    socket.on("player_death_sfx", function(){
+        player_deathSFX.play();
+    })
 
     $(document).on("keydown", (event) => {
         if (!players[socket.id]) return;
@@ -180,6 +193,11 @@ $(document).ready(function () {
             keys.d.pressed = true;
         } else if (event.code === "Space") {
             keys.Space.pressed = true;
+        } else if (event.code === "KeyF"){
+            socket.emit("special_move",{
+                x: players[socket.id].x,
+                y: players[socket.id].y,
+            });
         }
     });
 
@@ -213,6 +231,7 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#join-button", () => {
+        $("#player-hp").html("HP: 3");
         if (!players[socket.id]) {
             socket.emit("join", {
                 characters: new Player(

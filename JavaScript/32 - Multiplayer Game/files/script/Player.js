@@ -13,7 +13,6 @@ class Player {
         this.x = x;
         this.y = y;
         this.specialProj = specialProj;
-        this.score = 0;
     }
     createPlayer() {
         const playerDiv = $("<div>")

@@ -1,14 +1,13 @@
 class Projectile {
-    constructor(x, y, velocity) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.velocity = velocity;
     }
 }
 
 class Fireball extends Projectile {
-    constructor(x, y, playerID, velocity = 5, img = "/images/fireball.gif",dmg=2) {
-        super(x, y, velocity);
+    constructor(x, y, playerID, img = "/images/fireball.gif") {
+        super(x, y);
         this.playerID = playerID;
         this.img = $("<img>")
             .attr({
@@ -19,7 +18,6 @@ class Fireball extends Projectile {
             .css("left", this.x)
             .css("top", this.y);
         $("main").append(this.img);
-        this.dmg = dmg;
     }
 }
 

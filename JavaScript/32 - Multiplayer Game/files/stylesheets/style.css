@@ -116,3 +116,7 @@ main {
     display: inline-block;
     position: absolute;
 }
+
+#special{
+    width: 80px;
+}
