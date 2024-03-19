@@ -1,0 +1,12 @@
+*{
+    /* outline: 1px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+a{
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+}

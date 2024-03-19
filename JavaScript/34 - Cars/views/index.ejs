@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/stylesheets/style.css">
+    <title>Cars</title>
+</head>
+<body>
+    <header>
+        <h1>You did <%= session_data %>x visiting this page.</h1>
+        <a href="/process">Reset</a>
+    </header>
+    <main>
+        <h1>You have <%= data.length %> cars!</h1>
+        <p>The cars in the database are as follows:</p>
+        <ul>
+        <%_ for(let i = 0; i< data.length ;i++) { _%>
+            <li><%= data[i].name %> - <%= data[i].year %></li>
+        <%_ } _%>
+        </ul>
+    </main>
+</body>
+</html>
