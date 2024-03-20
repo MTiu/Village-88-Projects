@@ -1,0 +1,43 @@
+*{
+    /* outline: 1px solid red; */
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.login, .register{
+    padding: 20px;
+    width: 400px;
+    display: block;
+    border: 1px solid black;
+    margin: 3% 2%;
+}
+
+.login h1, .register h1{
+    margin-bottom: 20px;
+}
+
+form{
+    display: inline-block;
+    position: relative;
+}
+
+label{
+    margin-bottom: 20px;
+    display: block;
+    text-align: right;
+}
+
+input[type='submit'] {
+    position: relative;
+    left: 85%;
+}
+
+.errors{
+    color: red;
+}
+
+.success{
+    color: green;
+}

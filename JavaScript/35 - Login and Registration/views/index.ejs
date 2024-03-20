@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="assets/stylesheets/style.css">
+        <title>Login Register</title>
+    </head>
+    <body>
+        <main>
+            <section class="login">
+                <h1>Login</h1>
+                <form action="/logProcess" method="post">
+                    <label> 
+                        Email Address:<input type="email" name="email" /> 
+                        <p class="errors"> <%= (logErrors && logErrors.email)? logErrors.email : '' %> </p>
+                    </label>
+                    <label> 
+                        Password <input type="password" name="password" />
+                        <p class="errors"> <%= (logErrors && logErrors.password)? logErrors.password : '' %> </p>
+                    </label>
+                    <input type="submit" value="Login" />
+                </form>
+            </section>
+            <section class="register">
+                <h1>Register</h1>
+                <p class="success"> <%= (success)? success : '' %> </p>
+                <form action="/regProcess" method="post">
+                    <label>
+                        First Name <input type="text" name="fname">
+                        <p class="errors"> <%= (regErrors && regErrors.fname)? regErrors.fname : '' %> </p>
+                    </label>
+                    <label>
+                        Last Name <input type="text" name="lname">
+                        <p class="errors"> <%= (regErrors && regErrors.lname)? regErrors.lname : '' %> </p>
+                    </label>
+                    <label> 
+                        Email Address:<input type="email" name="email" /> 
+                        <p class="errors"> <%= (regErrors && regErrors.email)? regErrors.email : '' %> </p>
+                    </label>
+                    <label> 
+                        Password <input type="password" name="password" />
+                        <p class="errors"> <%= (regErrors && regErrors.password)? regErrors.password : '' %> </p>
+                    </label>
+                    <label> 
+                        Confirm Password <input type="password" name="confPassword" />
+                        <p class="errors"> <%= (regErrors && regErrors.confPassword)? regErrors.confPassword : '' %> </p>
+                    </label>
+                    <input type="submit" value="register">
+                </form>
+            </section>
+
+            <a href="/students/profile">profile</a>
+        </main>
+    </body>
+</html>
