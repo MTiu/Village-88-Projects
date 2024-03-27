@@ -13,3 +13,4 @@ end
 cert = Certificate.new("Proficient in Backend", "Philip Campani")
 puts cert.title # => "Proficient in Backend"
 cert.announce  # => "Proficient in Backend: Philip Campani"
+# 3 mins
