@@ -7,7 +7,11 @@ class Developer
     end
 
     def code_review(developer)
-        developer.knowledge+=1 if developer.class.ancestors.include?(Developer)
+        if developer.class.ancestors.include?(Developer)
+            developer.knowledge+=1 
+        else
+            puts "NOT A DEVELOPER!"
+        end
     end
 end
 
