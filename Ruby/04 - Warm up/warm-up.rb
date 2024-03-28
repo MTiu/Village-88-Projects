@@ -77,8 +77,7 @@ puts return_hash([1, 5, 10, -2])
 
 # Exercise 12
 def moving_values(arr)
-    first = arr.delete_at(0)
-    arr.insert(-1,first)
+    arr.insert(-1, arr.delete_at(0))
 end
 
 puts moving_values( [2, 6, 11, 8, -2]).to_s
